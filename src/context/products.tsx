@@ -12,6 +12,7 @@ import { useContext, useEffect, useMemo, useState } from 'preact/hooks';
 
 import { getProductSearch, refineProductSearch } from '../api/search';
 import {
+  Brand,
   Facet,
   FacetFilter,
   PageSizeOption,
@@ -82,6 +83,7 @@ const ProductsContext = createContext<{
     options: [],
     quantity: number
   ) => Promise<void | undefined>;
+  brandsData: Brand[];
 }>({
   variables: {
     phrase: '',
@@ -121,6 +123,7 @@ const ProductsContext = createContext<{
   resolveCartId: () => Promise.resolve(''),
   refreshCart: () => {},
   addToCart: () => Promise.resolve(),
+  brandsData: [],
 });
 
 const ProductsContextProvider = ({ children }: WithChildrenProps) => {
@@ -240,6 +243,7 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
     refreshCart: storeCtx.config.refreshCart,
     resolveCartId: storeCtx.config.resolveCartId,
     addToCart: storeCtx.config.addToCart,
+    brandsData: JSON.parse(storeCtx.config.brandsData || '[]'),
   };
 
   const searchProducts = async () => {
