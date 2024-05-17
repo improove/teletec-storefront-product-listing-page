@@ -53,6 +53,7 @@ export interface StoreDetailsConfig {
     options: [],
     quantity: number
   ) => Promise<void | undefined>;
+  brandsData?: string | undefined;
 }
 
 // Types
@@ -234,6 +235,7 @@ export interface Product {
     media_gallery: null | ProductViewMedia;
     custom_attributes: null | CustomAttribute;
     add_to_cart_allowed: null | boolean;
+    attributes: null | Attribute[];
     options:
       | null
       | {
@@ -243,6 +245,12 @@ export interface Product {
         }[];
   };
   highlights: Array<Highlights>;
+}
+
+export interface Attribute {
+  name: null | string;
+  label: null | string;
+  value: null | string | string[];
 }
 
 export interface RefinedProduct {
@@ -429,4 +437,11 @@ export interface SortOption {
 export interface GQLSortInput {
   direction: 'ASC' | 'DESC';
   attribute: string;
+}
+
+export interface Brand {
+  title: null | string;
+  link_url: null | string;
+  image_url: null | string;
+  small_image_alt: null | string;
 }

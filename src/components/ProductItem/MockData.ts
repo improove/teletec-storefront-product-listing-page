@@ -7,7 +7,7 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 
-import { Product } from '../../types/interface';
+import {Attribute, Product} from '../../types/interface';
 
 export const sampleProductNoImage: Product = {
   product: {
@@ -127,6 +127,7 @@ export const sampleProductNoImage: Product = {
     media_gallery: null,
     custom_attributes: null,
     add_to_cart_allowed: null,
+    attributes: null,
     options: null,
   },
   highlights: [
@@ -299,6 +300,7 @@ export const sampleProductDiscounted: Product = {
     media_gallery: null,
     custom_attributes: null,
     add_to_cart_allowed: null,
+    attributes: null,
     options: null,
   },
   highlights: [
@@ -471,6 +473,7 @@ export const sampleProductNotDiscounted: Product = {
     media_gallery: null,
     custom_attributes: null,
     add_to_cart_allowed: null,
+    attributes: null,
     options: null,
   },
   highlights: [

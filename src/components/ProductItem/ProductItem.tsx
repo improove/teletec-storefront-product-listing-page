@@ -14,7 +14,9 @@ import '../ProductItem/ProductItem.css';
 
 import { useCart, useProducts, useSensor, useStore } from '../../context';
 import NoImage from '../../icons/NoImage.svg';
+import { Image } from '../ImageCarousel/Image';
 import {
+  Brand,
   Product,
   ProductViewMedia,
   RedirectRouteFunc,
@@ -165,34 +167,90 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
     }
   };
 
+  const { brandsData } = useProducts();
+
+  const manufacturer = (product: Product) => {
+    if (!product.productView.attributes) {
+      return null;
+    }
+    const manufacturer = product.productView.attributes.filter(attribute =>
+        attribute.name === "manufacturer"
+    );
+    if (manufacturer?.[0]) {
+      if (typeof manufacturer[0]?.value === 'string') {
+        return manufacturer[0]?.value;
+      }
+    }
+    return null;
+  };
+
+  const brand = (manufacturerName: string|null) => {
+    if (!brandsData) {
+      return null;
+    }
+
+    const brand = brandsData.filter((brand: Brand) => brand.title === manufacturerName);
+    if (brand?.[0]) {
+      return brand[0];
+    }
+    return null;
+  };
+
+  const manufacturerData = manufacturer(item);
+  const brandData = brand(manufacturerData);
+
+  const productManufacturer = () => {
+    const manufacturer = () => {
+      return (
+          <>
+            {(brandData?.image_url) &&
+                <Image image={brandData?.image_url} alt={String(brandData?.title)}  carouselIndex={0} index={0}/>
+            }
+            { !(brandData?.image_url) &&
+                <span>{manufacturerData}</span>
+            }
+          </>
+      );
+    }
+    return (
+        <>
+          {(brandData?.link_url) &&
+              <a href={brandData?.link_url}>{manufacturer()}</a>
+          }
+          {(!brandData?.link_url) && manufacturer()}
+        </>
+    );
+  }
+
   if (listview && viewType === 'listview') {
     return (
       <>
         <div className="grid-container">
           <div
-            className={`product-image ds-sdk-product-item__image relative rounded-md overflow-hidden}`}
+              className={`product-image ds-sdk-product-item__image relative rounded-md overflow-hidden}`}
           >
+            {productManufacturer()}
             <a
-              href={productUrl as string}
-              onClick={onProductClick}
-              className="!text-primary hover:no-underline hover:text-primary"
+                href={productUrl as string}
+                onClick={onProductClick}
+                className="!text-primary hover:no-underline hover:text-primary"
             >
               {/* Image */}
               {productImageArray.length ? (
-                <ImageCarousel
-                  images={
-                    optimizedImageArray.length
-                      ? optimizedImageArray
-                      : productImageArray
-                  }
-                  productName={product.name}
-                  carouselIndex={carouselIndex}
-                  setCarouselIndex={setCarouselIndex}
-                />
+                  <ImageCarousel
+                      images={
+                        optimizedImageArray.length
+                            ? optimizedImageArray
+                            : productImageArray
+                      }
+                      productName={product.name}
+                      carouselIndex={carouselIndex}
+                      setCarouselIndex={setCarouselIndex}
+                  />
               ) : (
-                <NoImage
-                  className={`max-h-[250px] max-w-[200px] pr-5 m-auto object-cover object-center lg:w-full`}
-                />
+                  <NoImage
+                      className={`max-h-[250px] max-w-[200px] pr-5 m-auto object-cover object-center lg:w-full`}
+                  />
               )}
             </a>
           </div>
@@ -275,7 +333,11 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
           <div className="product-ratings" />
           <div className="product-add-to-cart">
             <div className="pb-4 h-[38px] w-96">
-              <AddToCartButton onClick={handleAddToCart} />
+              {product?.price_range?.minimum_price?.final_price?.value ? (
+                  <>
+                    <AddToCartButton onClick={handleAddToCart} />
+                  </>
+              ) : (<></>)}
             </div>
           </div>
         </div>
@@ -292,6 +354,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
     >
+      {productManufacturer()}
       <a
         href={productUrl as string}
         onClick={onProductClick}
@@ -368,10 +431,14 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
         </div>
       )}
         <div className="pb-4 mt-sm">
-          {screenSize.mobile && <AddToCartButton onClick={handleAddToCart} />}
-          {isHovering && screenSize.desktop && (
-            <AddToCartButton onClick={handleAddToCart} />
-          )}
+          {product?.price_range?.minimum_price?.final_price?.value ? (
+              <>
+                {screenSize.mobile && <AddToCartButton onClick={handleAddToCart} />}
+                {isHovering && screenSize.desktop && (
+                    <AddToCartButton onClick={handleAddToCart} />
+                )}
+              </>
+          ) : (<></>)}
         </div>
     </div>
   );

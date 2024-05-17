@@ -49,6 +49,11 @@ const ProductView = `
                 url
                 roles
             }
+            attributes {
+                name,
+                label,
+                value
+            }
             ... on ComplexProductView {
                 priceRange {
                     maximum {
