@@ -40,6 +40,7 @@ export const zh_Hant_TW = {
   CategoryFilters: {
     results: '{phrase} 的結果',
     products: '{totalCount} 個產品',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: '低至 {discountPrice}',

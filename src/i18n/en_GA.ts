@@ -40,6 +40,7 @@ export const en_GA = {
   CategoryFilters: {
     results: 'torthaí do {phrase}',
     products: '{totalCount} táirge',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Chomh híseal le {discountPrice}',

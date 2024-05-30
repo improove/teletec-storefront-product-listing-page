@@ -40,6 +40,7 @@ export const Sorani = {
   CategoryFilters: {
     results: 'ئەنجامەکان بۆ {phrase}',
     products: '{totalCount} بەرهەمەکان',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'بەقەد نزمیی {discountPrice}',

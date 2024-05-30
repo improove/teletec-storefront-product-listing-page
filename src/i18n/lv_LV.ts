@@ -40,6 +40,7 @@ export const lv_LV = {
   CategoryFilters: {
     results: '{phrase} rezultāti',
     products: '{totalCount} produkti',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Tik zemu kā {discountPrice}',

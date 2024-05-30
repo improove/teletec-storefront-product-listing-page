@@ -40,6 +40,7 @@ export const zh_Hans_CN = {
   CategoryFilters: {
     results: '{phrase} 的结果',
     products: '{totalCount} 个产品',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: '低至 {discountPrice}',

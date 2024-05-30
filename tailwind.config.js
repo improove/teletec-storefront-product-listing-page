@@ -23,6 +23,9 @@ module.exports = {
           800: 'var(--color-gray-8)',
           900: 'var(--color-gray-9)',
         },
+        red: {
+          teletec: 'var(--color-red-teletec)',
+        }
       },
       spacing: {
         xss: 'var(--spacing-xxs)',

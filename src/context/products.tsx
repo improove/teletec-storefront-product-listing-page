@@ -14,7 +14,7 @@ import { getProductSearch, refineProductSearch } from '../api/search';
 import {
   Brand,
   Facet,
-  FacetFilter,
+  FacetFilter, PageInfo,
   PageSizeOption,
   Product,
   ProductSearchQuery,
@@ -57,6 +57,8 @@ const ProductsContext = createContext<{
   setTotalPages: (pages: number) => void;
   facets: Facet[];
   setFacets: (facets: Facet[]) => void;
+  pageInfo?: PageInfo;
+  setPageInfo?: (pageInfo: PageInfo)  => void;
   categoryName: string;
   setCategoryName: (categoryName: string) => void;
   currencySymbol: string;
@@ -101,6 +103,8 @@ const ProductsContext = createContext<{
   setTotalPages: () => {},
   facets: [],
   setFacets: () => {},
+  pageInfo: undefined,
+  setPageInfo: () => {},
   categoryName: '',
   setCategoryName: () => {},
   currencySymbol: '',
@@ -154,6 +158,7 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
   const [totalCount, setTotalCount] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [facets, setFacets] = useState<Facet[]>([]);
+  const [pageInfo, setPageInfo] = useState<PageInfo>();
   const [categoryName, setCategoryName] = useState<string>(
     storeCtx?.config?.categoryName ?? ''
   );
@@ -220,6 +225,8 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
     setTotalPages,
     facets,
     setFacets,
+    pageInfo,
+    setPageInfo,
     categoryName,
     setCategoryName,
     currencySymbol,
@@ -265,6 +272,7 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
 
         setItems(data?.productSearch?.items || []);
         setFacets(data?.productSearch?.facets || []);
+        setPageInfo(data?.productSearch?.page_info || undefined);
         setTotalCount(data?.productSearch?.total_count || 0);
         setTotalPages(data?.productSearch?.page_info?.total_pages || 1);
         handleCategoryNames(data?.productSearch?.facets || []);
@@ -292,6 +300,7 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
     ) {
       setItems([]);
       setFacets([]);
+      setPageInfo(undefined);
       setTotalCount(0);
       setTotalPages(1);
       setMinQueryLengthReached(false);

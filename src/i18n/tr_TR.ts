@@ -40,6 +40,7 @@ export const tr_TR = {
   CategoryFilters: {
     results: '{phrase} için sonuçlar',
     products: '{totalCount} ürün',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'En düşük: {discountPrice}',

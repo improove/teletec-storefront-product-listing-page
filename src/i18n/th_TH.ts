@@ -40,6 +40,7 @@ export const th_TH = {
   CategoryFilters: {
     results: 'ผลลัพธ์สำหรับ {phrase}',
     products: '{totalCount} ผลิตภัณฑ์',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'ต่ำสุดที่ {discountPrice}',

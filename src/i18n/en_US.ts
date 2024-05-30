@@ -47,6 +47,7 @@ export const en_US = {
   CategoryFilters: {
     results: 'results for {phrase}',
     products: '{totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'As low as {discountPrice}',

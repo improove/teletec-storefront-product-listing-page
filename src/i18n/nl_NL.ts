@@ -40,6 +40,7 @@ export const nl_NL = {
   CategoryFilters: {
     results: 'resultaten voor {phrase}',
     products: '{totalCount} producten',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Slechts {discountPrice}',

@@ -40,6 +40,7 @@ export const ko_KR = {
   CategoryFilters: {
     results: '{phrase}에 대한 검색 결과',
     products: '{totalCount}개 제품',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: '최저 {discountPrice}',

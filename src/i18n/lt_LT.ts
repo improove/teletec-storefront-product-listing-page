@@ -40,6 +40,7 @@ export const lt_LT = {
   CategoryFilters: {
     results: 'rezultatai {phrase}',
     products: 'Produktų: {totalCount}',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Žema kaip {discountPrice}',

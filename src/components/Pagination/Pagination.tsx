@@ -57,7 +57,7 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
         className={`h-sm w-sm transform rotate-90 ${
           currentPage === 1
             ? 'stroke-gray-400 cursor-not-allowed'
-            : 'stroke-gray-600 cursor-pointer'
+            : 'stroke-red-teletec cursor-pointer'
         }`}
         onClick={onPrevious}
       />
@@ -93,7 +93,7 @@ export const Pagination: FunctionComponent<PaginationProps> = ({
         className={`h-sm w-sm transform -rotate-90 ${
           currentPage === totalPages
             ? 'stroke-gray-400 cursor-not-allowed'
-            : 'stroke-gray-600 cursor-pointer'
+            : 'stroke-red-teletec cursor-pointer'
         }`}
         onClick={onNext}
       />

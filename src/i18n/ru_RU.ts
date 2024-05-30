@@ -40,6 +40,7 @@ export const ru_RU = {
   CategoryFilters: {
     results: 'Результаты по запросу «{phrase}»',
     products: 'Продукты: {totalCount}',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Всего за {discountPrice}',

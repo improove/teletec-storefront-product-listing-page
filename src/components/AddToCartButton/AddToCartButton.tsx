@@ -18,17 +18,12 @@ export const AddToCartButton: FunctionComponent<AddToCartButtonProps> = ({
   onClick,
 }: AddToCartButtonProps) => {
   return (
-    <div className="ds-sdk-add-to-cart-button">
       <button
-        className="flex items-center justify-center text-white text-sm rounded-full h-[32px] w-full p-sm"
-        style={{
-          'background-color': `#464646`,
-        }}
-        onClick={onClick}
+          className="action tocart"
+          onClick={onClick}
       >
-        <CartIcon className="w-[24px] pr-4" />
-        Add To Cart
+          <CartIcon className="w-[24px] pr-4"/>
+          Add To Cart
       </button>
-    </div>
   );
 };

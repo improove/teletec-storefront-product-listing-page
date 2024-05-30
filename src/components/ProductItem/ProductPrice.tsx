@@ -120,50 +120,21 @@ export const ProductPrice: FunctionComponent<ProductPriceProps> = ({
   return (
     <>
       {price && (
-        <div className="ds-sdk-product-price">
+        <span className="price-wrapper">
           {!isBundle &&
             !isGrouped &&
             !isConfigurable &&
-            !isComplexProductView &&
-            discount && (
-              <p className="ds-sdk-product-price--discount mt-xs text-sm font-medium text-gray-900 my-auto">
-                <span className="line-through pr-2">
-                  {getProductPrice(
-                    item,
-                    currencySymbol,
-                    currencyRate,
-                    false,
-                    false
-                  )}
-                </span>
-                <span className="text-secondary">
-                  {getProductPrice(
-                    item,
-                    currencySymbol,
-                    currencyRate,
-                    false,
-                    true
-                  )}
-                </span>
-              </p>
-            )}
-
-          {!isBundle &&
-            !isGrouped &&
-            !isGiftCard &&
-            !isConfigurable &&
-            !isComplexProductView &&
-            !discount && (
-              <p className="ds-sdk-product-price--no-discount mt-xs text-sm font-medium text-gray-900 my-auto">
+            !isComplexProductView && (
+              <span className="price">
                 {getProductPrice(
                   item,
                   currencySymbol,
                   currencyRate,
                   false,
-                  true
+                  false
                 )}
-              </p>
-            )}
+              </span>
+          )}
 
           {isBundle && (
             <div className="ds-sdk-product-price--bundle">
@@ -192,7 +163,7 @@ export const ProductPrice: FunctionComponent<ProductPriceProps> = ({
                 {getDiscountedPrice(discount)}
               </p>
             )}
-        </div>
+        </span>
       )}
     </>
   );

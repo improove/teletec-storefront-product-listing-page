@@ -40,6 +40,7 @@ export const bn_IN = {
   CategoryFilters: {
     results: '{phrase} এর জন্য ফলাফল',
     products: '{totalCount} প্রোডাক্টগুলি',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'এত কম যে {discountPrice}',

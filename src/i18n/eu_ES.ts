@@ -40,6 +40,7 @@ export const eu_ES = {
   CategoryFilters: {
     results: '{phrase} bilaketaren emaitzak',
     products: '{totalCount} produktu',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: '{discountPrice} bezain baxua',

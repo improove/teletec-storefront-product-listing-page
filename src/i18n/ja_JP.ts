@@ -40,6 +40,7 @@ export const ja_JP = {
   CategoryFilters: {
     results: '{phrase}の検索結果',
     products: '{totalCount}製品',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: '割引料金 : {discountPrice}',

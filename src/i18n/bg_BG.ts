@@ -40,6 +40,7 @@ export const bg_BG = {
   CategoryFilters: {
     results: 'резултати за {phrase}',
     products: '{totalCount} продукта',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Само {discountPrice}',

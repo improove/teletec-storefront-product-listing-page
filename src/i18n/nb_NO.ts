@@ -40,6 +40,7 @@ export const nb_NO = {
   CategoryFilters: {
     results: 'resultater for {phrase}',
     products: '{totalCount} produkter',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Så lavt som {discountPrice}',

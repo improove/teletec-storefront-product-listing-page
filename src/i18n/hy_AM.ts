@@ -40,6 +40,7 @@ export const hy_AM = {
   CategoryFilters: {
     results: 'արդյունքներ {phrase}-ի համար',
     products: '{totalCount} ապրանքներ',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: '{discountPrice}-ի չափ ցածր',

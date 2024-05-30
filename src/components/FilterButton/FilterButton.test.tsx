@@ -19,6 +19,7 @@ describe('WidgetSDK - UIKit/FilterButton', () => {
           return;
         }}
         type="mobile"
+        showFilters={true}
       />
     );
 

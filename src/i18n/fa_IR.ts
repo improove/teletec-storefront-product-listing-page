@@ -40,6 +40,7 @@ export const fa_IR = {
   CategoryFilters: {
     results: 'نتایج برای {phrase}',
     products: '{totalCount} محصولات',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'برابر با {discountPrice}',

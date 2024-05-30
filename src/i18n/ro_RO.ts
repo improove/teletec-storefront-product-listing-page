@@ -40,6 +40,7 @@ export const ro_RO = {
   CategoryFilters: {
     results: 'rezultate pentru {phrase}',
     products: '{totalCount} produse',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Preț redus până la {discountPrice}',

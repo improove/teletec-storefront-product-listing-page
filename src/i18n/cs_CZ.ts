@@ -40,6 +40,7 @@ export const cs_CZ = {
   CategoryFilters: {
     results: 'výsledky pro {phrase}',
     products: 'Produkty: {totalCount}',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Pouze za {discountPrice}',

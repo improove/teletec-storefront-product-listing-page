@@ -40,6 +40,7 @@ export const sv_SE = {
   CategoryFilters: {
     results: 'resultat för {phrase}',
     products: '{totalCount} produkter',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Så lite som {discountPrice}',

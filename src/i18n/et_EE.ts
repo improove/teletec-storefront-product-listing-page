@@ -40,6 +40,7 @@ export const et_EE = {
   CategoryFilters: {
     results: '{phrase} tulemused',
     products: '{totalCount} toodet',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Ainult {discountPrice}',

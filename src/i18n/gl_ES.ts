@@ -40,6 +40,7 @@ export const gl_ES = {
   CategoryFilters: {
     results: 'resultados para {phrase}',
     products: '{totalCount} produtos',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'A partir de só {discountPrice}',

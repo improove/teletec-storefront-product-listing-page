@@ -94,9 +94,7 @@ export const InputButtonGroup: FunctionComponent<InputButtonGroupProps> = ({
       }`;
       return label;
     } else if (bucket.__typename === 'CategoryView') {
-      return productsCtx.categoryPath
-        ? bucket.name ?? bucket.title
-        : bucket.title;
+      return bucket.name;
     } else if (bucket.title === BOOLEAN_YES) {
       return title;
     } else if (bucket.title === BOOLEAN_NO) {
@@ -112,11 +110,11 @@ export const InputButtonGroup: FunctionComponent<InputButtonGroupProps> = ({
   };
 
   return (
-    <div className="ds-sdk-input pt-md">
+    <div>
       {inputGroupTitleSlot ? (
         inputGroupTitleSlot(title)
       ) : (
-        <label className="ds-sdk-input__label text-base font-normal text-gray-900">
+        <label className="filter-options-title">
           {title}
         </label>
       )}

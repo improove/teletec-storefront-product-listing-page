@@ -22,7 +22,7 @@ import {
   useStore,
   useTranslation,
 } from '../context';
-import { Facet } from '../types/interface';
+import { Facet, PageInfo } from '../types/interface';
 import { getValueFromUrl, handleUrlSort } from '../utils/handleUrlFilters';
 import {
   defaultSortOptions,
@@ -39,11 +39,13 @@ interface Props {
     desktop: boolean;
     columns: number;
   };
+  pageInfo?: PageInfo;
 }
 export const ProductsHeader: FunctionComponent<Props> = ({
   facets,
   totalCount,
   screenSize,
+  pageInfo,
 }) => {
   const searchCtx = useSearch();
   const storeCtx = useStore();
@@ -83,25 +85,22 @@ export const ProductsHeader: FunctionComponent<Props> = ({
     handleUrlSort(sortOption);
   };
 
+  const resultsTranslation = translation.CategoryFilters.productsShown;
+  const from = ( pageInfo) ? (pageInfo?.current_page * productsCtx.pageSize - productsCtx.pageSize + 1) : 0;
+  const to = ( pageInfo) ? (pageInfo?.current_page * productsCtx.pageSize - productsCtx.pageSize + pageInfo.page_size) : 0;
+  const results = resultsTranslation
+      .replace('{from}', from)
+      .replace('{to}', to)
+      .replace('{totalCount}', `${totalCount}`);
+
   return (
-    <div className="flex flex-col max-w-5xl lg:max-w-full ml-auto w-full h-full">
-      <div
-        className={`flex gap-x-2.5 mb-[1px] ${
-          screenSize.mobile ? 'justify-between' : 'justify-end'
-        }`}
-      >
+    <div className="toolbar toolbar-products">
+        <div className="modes-amount-container">
+          {(totalCount > 0) && <p className="toolbar-amount" id="toolbar-amount">{results}</p>}
+        </div>
         <div>
-          {screenSize.mobile
-            ? totalCount > 0 && (
-                <div className="pb-4">
-                  <FilterButton
-                    displayFilter={() => setShowMobileFacet(!showMobileFacet)}
-                    type="mobile"
-                  />
-                </div>
-              )
-            : storeCtx.config.displaySearchBox && (
-                <SearchBar
+          {storeCtx.config.displaySearchBox && ! (productsCtx.totalCount > 0) && (
+              <SearchBar
                   phrase={searchCtx.phrase}
                   onKeyPress={(e: any) => {
                     if (e.key === 'Enter') {
@@ -110,22 +109,23 @@ export const ProductsHeader: FunctionComponent<Props> = ({
                   }}
                   onClear={() => searchCtx.setPhrase('')}
                   placeholder={translation.SearchBar.placeholder}
-                />
-              )}
-        </div>
-        {totalCount > 0 && (
-          <>
-            {storeCtx?.config?.listview && <ViewSwitcher />}
+              />
+          )}
 
-            <SortDropdown
-              sortOptions={sortOptions}
-              value={sortBy}
-              onChange={onSortChange}
-            />
-          </>
+        {totalCount > 0 && (
+            <>
+              {storeCtx?.config?.listview && <ViewSwitcher/>}
+              <div className="toolbar-sorter sorter">
+                <SortDropdown
+                    sortOptions={sortOptions}
+                    value={sortBy}
+                    onChange={onSortChange}
+                />
+              </div>
+            </>
         )}
       </div>
-      {screenSize.mobile && showMobileFacet && <Facets searchFacets={facets} />}
+      {screenSize.mobile && showMobileFacet && facets && <></>}
     </div>
   );
 };

@@ -40,6 +40,7 @@ export const el_GR = {
   CategoryFilters: {
     results: 'αποτελέσματα για {phrase}',
     products: '{totalCount} προϊόντα',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Τόσο χαμηλά όσο {discountPrice}',

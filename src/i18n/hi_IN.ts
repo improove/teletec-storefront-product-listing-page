@@ -40,6 +40,7 @@ export const hi_IN = {
   CategoryFilters: {
     results: '{phrase} के लिए परिणाम',
     products: '{totalCount} प्रोडक्ट्स',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: '{discountPrice} जितना कम ',

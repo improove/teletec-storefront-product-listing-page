@@ -40,6 +40,7 @@ export const ar_AE = {
   CategoryFilters: {
     results: 'النتائج لـ {phrase}',
     products: 'منتجات {totalCount}',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'بقيمة {discountPrice} فقط',

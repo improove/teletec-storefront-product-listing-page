@@ -40,6 +40,7 @@ export const id_ID = {
   CategoryFilters: {
     results: 'hasil untuk {phrase}',
     products: '{totalCount} produk',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Paling rendah {discountPrice}',

@@ -14,15 +14,19 @@ import { useEffect, useState } from 'preact/hooks';
 import './product-list.css';
 
 import { Alert } from '../../components/Alert';
-import { useProducts, useStore } from '../../context';
-import { Product } from '../../types/interface';
+import {useProducts, useSensor, useStore} from '../../context';
+import {PageInfo, Product} from '../../types/interface';
 import { classNames } from '../../utils/dom';
 import ProductItem from '../ProductItem';
+import { ProductsHeader } from '../../containers/ProductsHeader';
+import {Pagination} from "../Pagination";
+import {handleUrlPagination} from "../../utils/handleUrlFilters";
 
 export interface ProductListProps extends HTMLAttributes<HTMLDivElement> {
   products: Array<Product> | null | undefined;
   numberOfColumns: number;
   showFilters: boolean;
+  pageInfo?: PageInfo
 }
 
 export const ProductList: FunctionComponent<ProductListProps> = ({
@@ -38,7 +42,24 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
     refineProduct,
     refreshCart,
     addToCart,
+    totalPages,
+    setCurrentPage,
+    currentPage,
   } = productsCtx;
+
+  useEffect(() => {
+    if (currentPage < 1) {
+      goToPage(1);
+    }
+  }, []);
+
+  const goToPage = (page: number | string) => {
+    if (typeof page === 'number') {
+      setCurrentPage(page);
+      handleUrlPagination(page);
+    }
+  };
+
   const [cartUpdated, setCartUpdated] = useState(false);
   const [itemAdded, setItemAdded] = useState('');
   const { viewType } = useProducts();
@@ -51,16 +72,15 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
     ? 'ds-sdk-product-list bg-body max-w-full pl-3 pb-2xl sm:pb-24'
     : 'ds-sdk-product-list bg-body w-full mx-auto pb-2xl sm:pb-24';
 
+  const { screenSize } = useSensor();
+
   useEffect(() => {
     refreshCart && refreshCart();
   }, [itemAdded]);
 
   return (
     <div
-      className={classNames(
-        'ds-sdk-product-list bg-body pb-2xl sm:pb-24',
-        className
-      )}
+      className='search results'
     >
       {cartUpdated && (
         <div className="mt-8">
@@ -107,22 +127,42 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
           style={{
             gridTemplateColumns: `repeat(${numberOfColumns}, minmax(0, 1fr))`,
           }}
-          className="ds-sdk-product-list__grid mt-md grid gap-y-8 gap-x-2xl xl:gap-x-8"
+          className=""
+          id="amasty-shopby-product-list"
         >
-          {products?.map((product) => (
-            <ProductItem
-              item={product}
-              setError={setError}
-              key={product?.productView?.id}
-              currencySymbol={currencySymbol}
-              currencyRate={currencyRate}
-              setRoute={setRoute}
-              refineProduct={refineProduct}
-              setCartUpdated={setCartUpdated}
-              setItemAdded={setItemAdded}
-              addToCart={addToCart}
-            />
-          ))}
+          <ProductsHeader
+              facets={productsCtx.facets}
+              totalCount={productsCtx.totalCount}
+              screenSize={screenSize}
+              pageInfo={productsCtx.pageInfo}
+          />
+          <div className="products wrapper grid products-grid">
+            <ol className="products list items product-items">
+              {products?.map((product) => (
+                <ProductItem
+                  item={product}
+                  setError={setError}
+                  key={product?.productView?.id}
+                  currencySymbol={currencySymbol}
+                  currencyRate={currencyRate}
+                  setRoute={setRoute}
+                  refineProduct={refineProduct}
+                  setCartUpdated={setCartUpdated}
+                  setItemAdded={setItemAdded}
+                  addToCart={addToCart}
+                />
+              ))}
+            </ol>
+          </div>
+          <div className="toolbar toolbar-products">
+            {totalPages > 1 && (
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={goToPage}
+                />
+            )}
+          </div>
         </div>
       )}
     </div>

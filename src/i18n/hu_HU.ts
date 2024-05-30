@@ -40,6 +40,7 @@ export const hu_HU = {
   CategoryFilters: {
     results: 'eredmények a következőre: {phrase}',
     products: '{totalCount} termék',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Ennyire alacsony: {discountPrice}',

@@ -40,6 +40,7 @@ export const ca_ES = {
   CategoryFilters: {
     results: 'Resultats per a {phrase}',
     products: '{totalCount}productes',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Mínim de {discountPrice}',

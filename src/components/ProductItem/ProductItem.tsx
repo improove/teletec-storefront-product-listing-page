@@ -32,6 +32,7 @@ import { AddToCartButton } from '../AddToCartButton';
 import { ImageCarousel } from '../ImageCarousel';
 import { SwatchButtonGroup } from '../SwatchButtonGroup';
 import ProductPrice from './ProductPrice';
+import {Text} from "domelementtype";
 
 export interface ProductProps {
   item: Product;
@@ -202,14 +203,14 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
   const productManufacturer = () => {
     const manufacturer = () => {
       return (
-          <>
+          <a href={brandData?.link_url || '#'}>
             {(brandData?.image_url) &&
                 <Image image={brandData?.image_url} alt={String(brandData?.title)}  carouselIndex={0} index={0}/>
             }
             { !(brandData?.image_url) &&
                 <span>{manufacturerData}</span>
             }
-          </>
+          </a>
       );
     }
     return (
@@ -346,58 +347,99 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
   }
 
   return (
+    <li className="item product product-item" key={productView?.id}>
     <div
-      className="ds-sdk-product-item group relative flex flex-col max-w-sm justify-between h-full hover:border-[1.5px] border-solid hover:shadow-lg border-offset-2 p-2"
-      style={{
-        'border-color': '#D5D5D5',
-      }}
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseOut}
+      className="product-item-info"
     >
-      {productManufacturer()}
+      {/*{productManufacturer()}*/}
       <a
-        href={productUrl as string}
-        onClick={onProductClick}
-        className="!text-primary hover:no-underline hover:text-primary"
+          href={productUrl as string}
+          onClick={onProductClick}
+          className="product photo product-item-photo"
       >
-        <div className="ds-sdk-product-item__main relative flex flex-col justify-between h-full">
-          <div className="ds-sdk-product-item__image relative w-full h-full rounded-md overflow-hidden">
-            {productImageArray.length ? (
-              <ImageCarousel
-                images={
-                  optimizedImageArray.length
-                    ? optimizedImageArray
-                    : productImageArray
+        <div className="product-image-wrapper">
+          {productImageArray.length ? (
+            <ImageCarousel
+              images={
+                optimizedImageArray.length
+                  ? optimizedImageArray
+                : productImageArray
                 }
                 productName={product.name}
                 carouselIndex={carouselIndex}
                 setCarouselIndex={setCarouselIndex}
               />
-            ) : (
-              <NoImage
-                className={`max-h-[45rem] w-full object-cover object-center lg:w-full`}
-              />
-            )}
+          ) : (
+            <NoImage
+              className={`max-h-[45rem] w-full object-cover object-center lg:w-full`}
+            />
+          )}
+        </div>
+      </a>
+      <div className="product details product-item-details">
+        <div className="product-item-main-info">
+          <div className="product-item-sku">
+            <span className="label">Artikelnr</span>
+            <span>{product.sku}</span>
           </div>
-          <div className="flex flex-row">
-            <div className="flex flex-col">
-              <div className="ds-sdk-product-item__product-name mt-md text-sm text-primary">
-                {product.name !== null && htmlStringDecode(product.name)}
-              </div>
-              <ProductPrice
-                item={refinedProduct ?? item}
-                isBundle={isBundle}
-                isGrouped={isGrouped}
-                isGiftCard={isGiftCard}
-                isConfigurable={isConfigurable}
-                isComplexProductView={isComplexProductView}
-                discount={discount}
-                currencySymbol={currencySymbol}
-                currencyRate={currencyRate}
-              />
+          <strong className="product name product-item-name">
+            <a
+                href={productUrl as string}
+                onClick={onProductClick}
+                className="product-item-link"
+            >{product.name !== null && htmlStringDecode(product.name)}</a>
+          </strong>
+          <div className="product-tile-price">
+            <div className="price-box price-final_price">
+              <span className="price-container price-final_price tax weee">
+                <ProductPrice
+                  item={refinedProduct ?? item}
+                  isBundle={isBundle}
+                  isGrouped={isGrouped}
+                  isGiftCard={isGiftCard}
+                  isConfigurable={isConfigurable}
+                  isComplexProductView={isComplexProductView}
+                  discount={discount}
+                  currencySymbol={currencySymbol}
+                  currencyRate={currencyRate}
+                />
+              </span>
             </div>
+          </div>
+          <div className="product-tile-stock">
+            <div className="visma-stock-holder">
+              <span className="visma-stock">6</span>
+              <span className="label">Lager: </span>
+              <span className="unit">st</span>
+            </div>
+          </div>
+          <div className="amshopby-option-link">
+            {productManufacturer()}
+          </div>
+          <div className="visma-product-data-container">
+            <div className="visma-list-price-holder">
+                <span className="label">Listpris: </span>
+                <span className="visma-list-price value">
+                  <ProductPrice
+                    item={refinedProduct ?? item}
+                    isBundle={isBundle}
+                    isGrouped={isGrouped}
+                    isGiftCard={isGiftCard}
+                    isConfigurable={isConfigurable}
+                    isComplexProductView={isComplexProductView}
+                    discount={discount}
+                    currencySymbol={currencySymbol}
+                    currencyRate={currencyRate}
+                  />
+                </span>
+            </div>
+            <div className="visma-discount-holder">
+              <span className="label">Rabatt: </span>
+              <span className="visma-discount value">40%</span>
+            </div>
+          </div>
 
-            {/* 
+          {/*
             //TODO: Wishlist button to be added later
             {flags.addToWishlist && widgetConfig.addToWishlist.enabled && (
               // TODO: Remove flag during phase 3 MSRCH-4278
@@ -408,15 +450,28 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
                 />
               </div>
             )} */}
+        </div>
+        <div className="product-item-inner">
+          <div className="add-to-container">
+            <div className="product actions product-item-actions">
+              <div className="actions-primary">
+                {product?.price_range?.minimum_price?.final_price?.value ? (
+                    <>
+                      <AddToCartButton onClick={handleAddToCart}/>
+                    </>
+                ) : (<></>)}
+              </div>
+            </div>
           </div>
         </div>
-      </a>
+      </div>
+
 
       {productView?.options && productView.options?.length > 0 && (
-        <div className="ds-sdk-product-item__product-swatch flex flex-row mt-sm text-sm text-primary">
-          {productView?.options?.map(
-            (swatches) =>
-              swatches.id == 'color' && (
+          <div className="ds-sdk-product-item__product-swatch flex flex-row mt-sm text-sm text-primary">
+            {productView?.options?.map(
+                (swatches) =>
+                    swatches.id == 'color' && (
                 <SwatchButtonGroup
                   key={product?.sku}
                   isSelected={isSelected}
@@ -441,6 +496,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
           ) : (<></>)}
         </div>
     </div>
+    </li>
   );
 };
 

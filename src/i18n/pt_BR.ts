@@ -40,6 +40,7 @@ export const pt_BR = {
   CategoryFilters: {
     results: 'resultados para {phrase}',
     products: '{totalCount} produtos',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Por apenas {discountPrice}',

@@ -40,6 +40,7 @@ export const fi_FI = {
   CategoryFilters: {
     results: 'tulosta ilmaukselle {phrase}',
     products: '{totalCount} tuotetta',
+    productsShown: 'Shown {from} - {to} of {totalCount} products',
   },
   ProductCard: {
     asLowAs: 'Parhaimmillaan {discountPrice}',
