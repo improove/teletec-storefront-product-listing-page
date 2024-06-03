@@ -30,9 +30,7 @@ export const Image = ({
 
   return (
     <img
-      className={`aspect-auto w-100 h-auto ${
-        isVisible ? 'visible' : 'invisible'
-      }`}
+      className="lazyloaded"
       ref={imageRef}
       src={imageUrl}
       data-src={typeof image === 'object' ? image.src : image}

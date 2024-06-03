@@ -357,7 +357,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
           onClick={onProductClick}
           className="product photo product-item-photo"
       >
-        <div className="product-image-wrapper">
+        <div className="lazyload-image-wrapper  product-image-wrapper">
           {productImageArray.length ? (
             <ImageCarousel
               images={
