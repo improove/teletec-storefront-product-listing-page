@@ -14,13 +14,13 @@ import { useEffect, useState } from 'preact/hooks';
 import './product-list.css';
 
 import { Alert } from '../../components/Alert';
+import { ProductsHeader } from '../../containers/ProductsHeader';
 import {useProducts, useSensor, useStore} from '../../context';
 import {PageInfo, Product} from '../../types/interface';
 import { classNames } from '../../utils/dom';
-import ProductItem from '../ProductItem';
-import { ProductsHeader } from '../../containers/ProductsHeader';
-import {Pagination} from "../Pagination";
 import {handleUrlPagination} from "../../utils/handleUrlFilters";
+import {Pagination} from "../Pagination";
+import ProductItem from '../ProductItem';
 
 export interface ProductListProps extends HTMLAttributes<HTMLDivElement> {
   products: Array<Product> | null | undefined;
@@ -45,6 +45,7 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
     totalPages,
     setCurrentPage,
     currentPage,
+    customerPrices,
   } = productsCtx;
 
   useEffect(() => {
@@ -118,6 +119,10 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
                 setCartUpdated={setCartUpdated}
                 setItemAdded={setItemAdded}
                 addToCart={addToCart}
+                customerPrice={customerPrices?.find(
+                  (customerPrice) =>
+                    customerPrice.sku === product.productView?.sku
+                )}
               />
             ))}
           </div>
@@ -150,6 +155,10 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
                   setCartUpdated={setCartUpdated}
                   setItemAdded={setItemAdded}
                   addToCart={addToCart}
+                  customerPrice={customerPrices?.find(
+                    (customerPrice) =>
+                      customerPrice.sku === product.productView?.sku
+                  )}
                 />
               ))}
             </ol>

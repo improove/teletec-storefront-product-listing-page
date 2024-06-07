@@ -48,52 +48,63 @@ export const App: FunctionComponent = () => {
 
   return (
     <>
-      {!(displayMode === 'PAGE') &&
-        (productsCtx.facets.length > 0 ? (
-          <div className="ds-widgets">
-            <div>
-              <CategoryFilters
-                loading={productsCtx.loading}
-                pageLoading={productsCtx.pageLoading}
-                facets={productsCtx.facets}
-                totalCount={productsCtx.totalCount}
-                categoryName={productsCtx.categoryName ?? ''}
-                phrase={productsCtx.variables.phrase ?? ''}
-                showFilters={showFilters}
-                setShowFilters={setShowFilters}
-                filterCount={searchCtx.filterCount}
-              />
-              <div className="column main">
-                {! (productsCtx.totalCount !> 1) &&
-                <ProductsHeader
-                  facets={productsCtx.facets}
-                  totalCount={productsCtx.totalCount}
-                  screenSize={screenSize}
-                />
-                }
-                <SelectedFilters />
-
-                <ProductsContainer showFilters={showFilters} />
-              </div>
-            </div>
-          </div>
+      {productsCtx.loading ? (
+        screenSize.mobile ? (
+          <Loading label={loadingLabel}/>
         ) : (
-          <div className="ds-widgets bg-body py-2">
-            <div className="flex flex-col">
-              <div className="ds-widgets_results flex flex-col items-center w-full h-full">
-                <div className="flex w-full h-full">
-                  {!(productsCtx.totalCount > 1) &&
-                      <ProductsHeader
-                          facets={productsCtx.facets}
-                          totalCount={productsCtx.totalCount}
-                          screenSize={screenSize}
-                      />
-                  }
+          <Shimmer />
+        )
+      ) : (
+        <>
+          {!(displayMode === 'PAGE') &&
+            (productsCtx.facets.length > 0 ? (
+              <div className="ds-widgets">
+                <div>
+                  <CategoryFilters
+                    loading={productsCtx.loading}
+                    pageLoading={productsCtx.pageLoading}
+                    facets={productsCtx.facets}
+                    totalCount={productsCtx.totalCount}
+                    categoryName={productsCtx.categoryName ?? ''}
+                    phrase={productsCtx.variables.phrase ?? ''}
+                    showFilters={showFilters}
+                    setShowFilters={setShowFilters}
+                    filterCount={searchCtx.filterCount}
+                  />
+                  <div className="column main">
+                    {! (productsCtx.totalCount !> 1) &&
+                    <ProductsHeader
+                      facets={productsCtx.facets}
+                      totalCount={productsCtx.totalCount}
+                      screenSize={screenSize}
+                    />
+                    }
+                    <SelectedFilters />
+
+                    <ProductsContainer showFilters={showFilters} />
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
+            ) : (
+              <div className="ds-widgets bg-body py-2">
+                <div className="flex flex-col">
+                  <div className="ds-widgets_results flex flex-col items-center w-full h-full">
+                    <div className="flex w-full h-full">
+                      {!(productsCtx.totalCount > 1) &&
+                          <ProductsHeader
+                              facets={productsCtx.facets}
+                              totalCount={productsCtx.totalCount}
+                              screenSize={screenSize}
+                          />
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </>
+      )}
     </>
   );
 };

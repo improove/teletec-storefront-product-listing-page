@@ -10,9 +10,9 @@ it.
 import { createContext } from 'preact';
 import { useContext, useEffect, useMemo, useState } from 'preact/hooks';
 
-import { getProductSearch, refineProductSearch } from '../api/search';
+import { getCustomerPrices, getProductSearch, refineProductSearch } from '../api/search';
 import {
-  Brand,
+  Brand, CustomerPrice,
   Facet,
   FacetFilter, PageInfo,
   PageSizeOption,
@@ -86,6 +86,7 @@ const ProductsContext = createContext<{
     quantity: number
   ) => Promise<void | undefined>;
   brandsData: Brand[];
+  customerPrices?: CustomerPrice[];
 }>({
   variables: {
     phrase: '',
@@ -128,6 +129,7 @@ const ProductsContext = createContext<{
   refreshCart: () => {},
   addToCart: () => Promise.resolve(),
   brandsData: [],
+  customerPrices: [],
 });
 
 const ProductsContextProvider = ({ children }: WithChildrenProps) => {
@@ -169,6 +171,7 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
   const [currencyRate, setCurrencyRate] = useState<string>(
     storeCtx?.config?.currencyRate ?? ''
   );
+  const [customerPrices, setCustomerPrices] = useState<CustomerPrice[]>();
   const [minQueryLengthReached, setMinQueryLengthReached] =
     useState<boolean>(false);
   const minQueryLength = useMemo(() => {
@@ -208,6 +211,23 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
   ) => {
     const data = await refineProductSearch({ ...storeCtx, optionIds, sku });
     return data;
+  };
+
+  const handleCustomerPrices = async (
+    skus: string[]
+  ) => {
+    if (storeCtx.config?.customerPriceServiceUrl) {
+      const params = {
+        request: {
+          skus: skus,
+        }
+      };
+      const data = await getCustomerPrices({
+        apiUrl: storeCtx.config.customerPriceServiceUrl,
+        requestParams: params
+      });
+      setCustomerPrices(data || []);
+    }
   };
 
   const context = {
@@ -251,6 +271,7 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
     resolveCartId: storeCtx.config.resolveCartId,
     addToCart: storeCtx.config.addToCart,
     brandsData: JSON.parse(storeCtx.config.brandsData || '[]'),
+    customerPrices,
   };
 
   const searchProducts = async () => {
@@ -283,9 +304,15 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
           data?.productSearch?.total_count,
           data?.productSearch?.page_info?.total_pages
         );
+
+        const skus = data?.productSearch?.items?.map((product) => product.productView?.sku);
+        if (skus) {
+          await handleCustomerPrices(skus);
+        }
       }
       setLoading(false);
       setPageLoading(false);
+
     } catch (error) {
       setLoading(false);
       setPageLoading(false);

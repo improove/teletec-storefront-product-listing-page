@@ -7,12 +7,15 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 
+import qs from "qs";
 import { v4 as uuidv4 } from 'uuid';
 
 import { updateSearchInputCtx, updateSearchResultsCtx } from '../context';
 import {
   AttributeMetadataResponse,
   ClientProps,
+  CustomerPrice,
+  CustomerPricesQuery,
   MagentoHeaders,
   ProductSearchQuery,
   ProductSearchResponse,
@@ -178,6 +181,8 @@ const getAttributeMetadata = async ({
     }),
   });
   const results = await response.json();
+  // const sleep = (ms: number | undefined) => new Promise(r => setTimeout(r, ms));
+  // await sleep(2000);
   return results?.data;
 };
 
@@ -220,4 +225,13 @@ const refineProductSearch = async ({
   return results?.data;
 };
 
-export { getAttributeMetadata, getProductSearch, refineProductSearch };
+const getCustomerPrices = async ({
+  apiUrl,
+  requestParams
+}: CustomerPricesQuery): Promise<CustomerPrice[]> => {
+
+  const response = await fetch(`${apiUrl  }?${  qs.stringify(requestParams)}`);
+  return await response.json();
+};
+
+export { getAttributeMetadata, getProductSearch, refineProductSearch, getCustomerPrices };

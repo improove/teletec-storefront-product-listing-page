@@ -54,6 +54,7 @@ export interface StoreDetailsConfig {
     quantity: number
   ) => Promise<void | undefined>;
   brandsData?: string | undefined;
+  customerPriceServiceUrl?: string | undefined
 }
 
 // Types
@@ -444,4 +445,26 @@ export interface Brand {
   link_url: null | string;
   image_url: null | string;
   small_image_alt: null | string;
+}
+
+export interface CustomerPrice {
+  sku: null | string;
+  price: null | number;
+  qty: null | number;
+  stock_qty: null | number;
+  company_id: null | number;
+  next_delivery_date: null | string;
+}
+
+export interface ArrayOfSkus {
+  skus: string[];
+}
+
+export interface CustomerPricesQueryParams {
+  request: ArrayOfSkus;
+}
+
+export interface CustomerPricesQuery {
+  apiUrl: string;
+  requestParams: CustomerPricesQueryParams;
 }

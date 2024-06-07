@@ -7,6 +7,7 @@ accordance with the terms of the Adobe license agreement accompanying
 it.
 */
 
+import {Text} from "domelementtype";
 import { FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 
@@ -14,9 +15,9 @@ import '../ProductItem/ProductItem.css';
 
 import { useCart, useProducts, useSensor, useStore } from '../../context';
 import NoImage from '../../icons/NoImage.svg';
-import { Image } from '../ImageCarousel/Image';
 import {
   Brand,
+  CustomerPrice,
   Product,
   ProductViewMedia,
   RedirectRouteFunc,
@@ -29,10 +30,13 @@ import {
 } from '../../utils/getProductImage';
 import { htmlStringDecode } from '../../utils/htmlStringDecode';
 import { AddToCartButton } from '../AddToCartButton';
+import ButtonShimmer from '../ButtonShimmer';
+import CustomerPriceShimmer from '../CustomerPriceShimmer';
+import DiscountShimmer from '../DiscountShimmer';
 import { ImageCarousel } from '../ImageCarousel';
+import { Image } from '../ImageCarousel/Image';
 import { SwatchButtonGroup } from '../SwatchButtonGroup';
 import ProductPrice from './ProductPrice';
-import {Text} from "domelementtype";
 
 export interface ProductProps {
   item: Product;
@@ -48,6 +52,7 @@ export interface ProductProps {
     options: [],
     quantity: number
   ) => Promise<void | undefined>;
+  customerPrice?: CustomerPrice | undefined;
 }
 
 export const ProductItem: FunctionComponent<ProductProps> = ({
@@ -60,6 +65,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
   setItemAdded,
   setError,
   addToCart,
+  customerPrice,
 }: ProductProps) => {
   const { product, productView } = item;
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -223,135 +229,11 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
     );
   }
 
-  if (listview && viewType === 'listview') {
-    return (
-      <>
-        <div className="grid-container">
-          <div
-              className={`product-image ds-sdk-product-item__image relative rounded-md overflow-hidden}`}
-          >
-            {productManufacturer()}
-            <a
-                href={productUrl as string}
-                onClick={onProductClick}
-                className="!text-primary hover:no-underline hover:text-primary"
-            >
-              {/* Image */}
-              {productImageArray.length ? (
-                  <ImageCarousel
-                      images={
-                        optimizedImageArray.length
-                            ? optimizedImageArray
-                            : productImageArray
-                      }
-                      productName={product.name}
-                      carouselIndex={carouselIndex}
-                      setCarouselIndex={setCarouselIndex}
-                  />
-              ) : (
-                  <NoImage
-                      className={`max-h-[250px] max-w-[200px] pr-5 m-auto object-cover object-center lg:w-full`}
-                  />
-              )}
-            </a>
-          </div>
-          <div className="product-details">
-            <div className="flex flex-col w-1/3">
-              {/* Product name */}
-              <a
-                href={productUrl as string}
-                onClick={onProductClick}
-                className="!text-primary hover:no-underline hover:text-primary"
-              >
-                <div className="ds-sdk-product-item__product-name mt-xs text-sm text-primary">
-                  {product.name !== null && htmlStringDecode(product.name)}
-                </div>
-                <div className="ds-sdk-product-item__product-sku mt-xs text-sm text-primary">
-                  SKU:
-                  {product.sku !== null && htmlStringDecode(product.sku)}
-                </div>
-              </a>
-
-              {/* Swatch */}
-              <div className="ds-sdk-product-item__product-swatch flex flex-row mt-sm text-sm text-primary pb-6">
-                {productView?.options?.map(
-                  (swatches) =>
-                    swatches.id === 'color' && (
-                      <SwatchButtonGroup
-                        key={productView?.sku}
-                        isSelected={isSelected}
-                        swatches={swatches.values ?? []}
-                        showMore={onProductClick}
-                        productUrl={productUrl as string}
-                        onClick={handleSelection}
-                        sku={productView?.sku}
-                      />
-                    )
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="product-price">
-            <a
-              href={productUrl as string}
-              onClick={onProductClick}
-              className="!text-primary hover:no-underline hover:text-primary"
-            >
-              <ProductPrice
-                item={refinedProduct ?? item}
-                isBundle={isBundle}
-                isGrouped={isGrouped}
-                isGiftCard={isGiftCard}
-                isConfigurable={isConfigurable}
-                isComplexProductView={isComplexProductView}
-                discount={discount}
-                currencySymbol={currencySymbol}
-                currencyRate={currencyRate}
-              />
-            </a>
-          </div>
-          <div className="product-description text-sm text-primary mt-xs">
-            <a
-              href={productUrl as string}
-              onClick={onProductClick}
-              className="!text-primary hover:no-underline hover:text-primary"
-            >
-              {product.short_description?.html ? (
-                <>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: product.short_description.html,
-                    }}
-                  />
-                </>
-              ) : (
-                <span />
-              )}
-            </a>
-          </div>
-
-          {/* TO BE ADDED LATER */}
-          <div className="product-ratings" />
-          <div className="product-add-to-cart">
-            <div className="pb-4 h-[38px] w-96">
-              {product?.price_range?.minimum_price?.final_price?.value ? (
-                  <>
-                    <AddToCartButton onClick={handleAddToCart} />
-                  </>
-              ) : (<></>)}
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
-
   return (
     <li className="item product product-item" key={productView?.id}>
     <div
       className="product-item-info"
     >
-      {/*{productManufacturer()}*/}
       <a
           href={productUrl as string}
           onClick={onProductClick}
@@ -384,42 +266,40 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
           </div>
           <strong className="product name product-item-name">
             <a
-                href={productUrl as string}
-                onClick={onProductClick}
-                className="product-item-link"
+              href={productUrl as string}
+              onClick={onProductClick}
+              className="product-item-link"
             >{product.name !== null && htmlStringDecode(product.name)}</a>
           </strong>
-          <div className="product-tile-price">
-            <div className="price-box price-final_price">
-              <span className="price-container price-final_price tax weee">
-                <ProductPrice
-                  item={refinedProduct ?? item}
-                  isBundle={isBundle}
-                  isGrouped={isGrouped}
-                  isGiftCard={isGiftCard}
-                  isConfigurable={isConfigurable}
-                  isComplexProductView={isComplexProductView}
-                  discount={discount}
-                  currencySymbol={currencySymbol}
-                  currencyRate={currencyRate}
-                />
-              </span>
-            </div>
-          </div>
-          <div className="product-tile-stock">
-            <div className="visma-stock-holder">
-              <span className="visma-stock">6</span>
-              <span className="label">Lager: </span>
-              <span className="unit">st</span>
-            </div>
-          </div>
+          {
+            (customerPrice?.price) ? (
+              <>
+                <div className="product-tile-price">
+                  <div className="price-box price-final_price">
+                    <span className="price-container price-final_price tax weee">
+                      {customerPrice.price} {currencySymbol}
+                    </span>
+                  </div>
+                </div>
+                <div className="product-tile-stock">
+                  <div className="visma-stock-holder">
+                    <span className="visma-stock">{customerPrice.stock_qty}</span>
+                    <span className="label">Lager: </span>
+                    <span className="unit">st</span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <CustomerPriceShimmer/>
+            )
+          }
           <div className="amshopby-option-link">
             {productManufacturer()}
           </div>
           <div className="visma-product-data-container">
             <div className="visma-list-price-holder">
-                <span className="label">Listpris: </span>
-                <span className="visma-list-price value">
+              <span className="label">Listpris: </span>
+              <span className="visma-list-price value">
                   <ProductPrice
                     item={refinedProduct ?? item}
                     isBundle={isBundle}
@@ -433,10 +313,18 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
                   />
                 </span>
             </div>
-            <div className="visma-discount-holder">
-              <span className="label">Rabatt: </span>
-              <span className="visma-discount value">40%</span>
-            </div>
+            {(customerPrice?.price) ? (
+              <div className="visma-discount-holder">
+                <span className="label">Rabatt: </span>
+                <span className="visma-discount value">
+                  {
+                    Math.round(100 - (customerPrice.price * 100 / item.product.price_range.minimum_price.final_price.value))
+                  }
+                </span>
+              </div>
+            ) : (
+              <DiscountShimmer/>
+            )}
           </div>
 
           {/*
@@ -452,7 +340,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
             )} */}
         </div>
         <div className="product-item-inner">
-          <div className="add-to-container">
+        <div className="add-to-container">
             <div className="product actions product-item-actions">
               <div className="actions-primary">
                 {product?.price_range?.minimum_price?.final_price?.value ? (
