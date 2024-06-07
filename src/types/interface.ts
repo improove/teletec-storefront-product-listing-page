@@ -54,7 +54,8 @@ export interface StoreDetailsConfig {
     quantity: number
   ) => Promise<void | undefined>;
   brandsData?: string | undefined;
-  customerPriceServiceUrl?: string | undefined
+  customerPriceServiceUrl?: string | undefined,
+  showPrice?: boolean;
 }
 
 // Types

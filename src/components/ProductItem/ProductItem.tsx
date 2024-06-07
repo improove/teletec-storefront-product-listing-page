@@ -52,7 +52,7 @@ export interface ProductProps {
     options: [],
     quantity: number
   ) => Promise<void | undefined>;
-  customerPrice?: CustomerPrice | undefined;
+  customerPrice?: CustomerPrice | undefined | null;
 }
 
 export const ProductItem: FunctionComponent<ProductProps> = ({
@@ -78,7 +78,11 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
   const { addToCartGraphQL, refreshCart } = useCart();
   const { viewType } = useProducts();
   const {
-    config: { optimizeImages, imageBaseWidth, imageCarousel, listview },
+    config: {
+      optimizeImages,
+      imageBaseWidth,
+      imageCarousel,
+      showPrice },
   } = useStore();
 
   const { screenSize } = useSensor();
@@ -272,60 +276,64 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
             >{product.name !== null && htmlStringDecode(product.name)}</a>
           </strong>
           {
-            (customerPrice?.price) ? (
-              <>
-                <div className="product-tile-price">
-                  <div className="price-box price-final_price">
-                    <span className="price-container price-final_price tax weee">
-                      {customerPrice.price} {currencySymbol}
-                    </span>
+            (showPrice) ? (
+              (customerPrice?.price) ? (
+                <>
+                  <div className="product-tile-price">
+                    <div className="price-box price-final_price">
+                      <span className="price-container price-final_price tax weee">
+                        {customerPrice.price} {currencySymbol}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="product-tile-stock">
-                  <div className="visma-stock-holder">
-                    <span className="visma-stock">{customerPrice.stock_qty}</span>
-                    <span className="label">Lager: </span>
-                    <span className="unit">st</span>
+                  <div className="product-tile-stock">
+                    <div className="visma-stock-holder">
+                      <span className="visma-stock">{customerPrice.stock_qty}</span>
+                      <span className="label">Lager: </span>
+                      <span className="unit">st</span>
+                    </div>
                   </div>
-                </div>
-              </>
-            ) : (
-              <CustomerPriceShimmer/>
-            )
+                </>
+              ) : (
+                <CustomerPriceShimmer/>
+              )
+            ) : (<></>)
           }
           <div className="amshopby-option-link">
             {productManufacturer()}
           </div>
-          <div className="visma-product-data-container">
-            <div className="visma-list-price-holder">
-              <span className="label">Listpris: </span>
-              <span className="visma-list-price value">
-                  <ProductPrice
-                    item={refinedProduct ?? item}
-                    isBundle={isBundle}
-                    isGrouped={isGrouped}
-                    isGiftCard={isGiftCard}
-                    isConfigurable={isConfigurable}
-                    isComplexProductView={isComplexProductView}
-                    discount={discount}
-                    currencySymbol={currencySymbol}
-                    currencyRate={currencyRate}
-                  />
-                </span>
-            </div>
-            {(customerPrice?.price) ? (
-              <div className="visma-discount-holder">
-                <span className="label">Rabatt: </span>
-                <span className="visma-discount value">
-                  {
-                    Math.round(100 - (customerPrice.price * 100 / item.product.price_range.minimum_price.final_price.value))
-                  }
-                </span>
+          { showPrice &&
+            <div className="visma-product-data-container">
+              <div className="visma-list-price-holder">
+                <span className="label">Listpris: </span>
+                <span className="visma-list-price value">
+                    <ProductPrice
+                      item={refinedProduct ?? item}
+                      isBundle={isBundle}
+                      isGrouped={isGrouped}
+                      isGiftCard={isGiftCard}
+                      isConfigurable={isConfigurable}
+                      isComplexProductView={isComplexProductView}
+                      discount={discount}
+                      currencySymbol={currencySymbol}
+                      currencyRate={currencyRate}
+                    />
+                  </span>
               </div>
-            ) : (
-              <DiscountShimmer/>
-            )}
-          </div>
+              {(customerPrice?.price) ? (
+                <div className="visma-discount-holder">
+                  <span className="label">Rabatt: </span>
+                  <span className="visma-discount value">
+                    {
+                      Math.round(100 - (customerPrice.price * 100 / item.product.price_range.minimum_price.final_price.value))
+                    }
+                  </span>
+                </div>
+              ) : (
+                <DiscountShimmer/>
+              )}
+            </div>
+          }
 
           {/*
             //TODO: Wishlist button to be added later

@@ -155,10 +155,11 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
                   setCartUpdated={setCartUpdated}
                   setItemAdded={setItemAdded}
                   addToCart={addToCart}
-                  customerPrice={customerPrices?.find(
-                    (customerPrice) =>
-                      customerPrice.sku === product.productView?.sku
-                  )}
+                  customerPrice={(customerPrices && customerPrices?.length > 0) ?
+                    customerPrices?.find(
+                      (customerPrice) =>
+                        customerPrice.sku === product.productView?.sku
+                    ) : null}
                 />
               ))}
             </ol>
