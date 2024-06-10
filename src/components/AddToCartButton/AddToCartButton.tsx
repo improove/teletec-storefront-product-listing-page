@@ -9,21 +9,23 @@ it.
 
 import { FunctionComponent } from 'preact';
 
-import CartIcon from '../../icons/cart.svg';
+import { useTranslation } from '../../context/translation';
 
 export interface AddToCartButtonProps {
   onClick: (e: any) => any;
 }
+
 export const AddToCartButton: FunctionComponent<AddToCartButtonProps> = ({
   onClick,
 }: AddToCartButtonProps) => {
+  const translation = useTranslation();
+
   return (
       <button
           className="action tocart"
           onClick={onClick}
       >
-          <CartIcon className="w-[24px] pr-4"/>
-          Add To Cart
+        {translation.ProductCard.addToCart}
       </button>
   );
 };

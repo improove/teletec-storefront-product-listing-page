@@ -40,13 +40,14 @@ export const da_DK = {
   CategoryFilters: {
     results: 'resultater for {phrase}',
     products: '{totalCount} produkter',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Så lav som {discountPrice}',
     startingAt: 'Fra {productPrice}',
     bundlePrice: 'Fra {fromBundlePrice} til {toBundlePrice}',
     from: 'Fra {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

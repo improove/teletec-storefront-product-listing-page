@@ -40,13 +40,14 @@ export const th_TH = {
   CategoryFilters: {
     results: 'ผลลัพธ์สำหรับ {phrase}',
     products: '{totalCount} ผลิตภัณฑ์',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'ต่ำสุดที่ {discountPrice}',
     startingAt: 'เริ่มต้นที่ {productPrice}',
     bundlePrice: 'ตั้งแต่ {fromBundlePrice} ถึง {toBundlePrice}',
     from: 'ตั้งแต่ {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

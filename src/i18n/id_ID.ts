@@ -40,13 +40,14 @@ export const id_ID = {
   CategoryFilters: {
     results: 'hasil untuk {phrase}',
     products: '{totalCount} produk',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Paling rendah {discountPrice}',
     startingAt: 'Mulai dari {productPrice}',
     bundlePrice: 'Mulai {fromBundlePrice} hingga {toBundlePrice}',
     from: 'Mulai {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

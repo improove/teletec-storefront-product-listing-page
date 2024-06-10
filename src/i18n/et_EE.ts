@@ -40,13 +40,14 @@ export const et_EE = {
   CategoryFilters: {
     results: '{phrase} tulemused',
     products: '{totalCount} toodet',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Ainult {discountPrice}',
     startingAt: 'Alates {productPrice}',
     bundlePrice: 'Alates {fromBundlePrice} kuni {toBundlePrice}',
     from: 'Alates {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

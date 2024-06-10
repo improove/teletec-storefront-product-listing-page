@@ -40,13 +40,14 @@ export const lt_LT = {
   CategoryFilters: {
     results: 'rezultatai {phrase}',
     products: 'Produktų: {totalCount}',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Žema kaip {discountPrice}',
     startingAt: 'Pradedant nuo {productPrice}',
     bundlePrice: 'Nuo {fromBundlePrice} iki {toBundlePrice}',
     from: 'Nuo {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

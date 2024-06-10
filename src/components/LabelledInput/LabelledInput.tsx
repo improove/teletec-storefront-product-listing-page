@@ -42,7 +42,6 @@ export const LabelledInput: FunctionComponent<LabelledInputProps> = ({
             : `radio-group-${attribute}`
         }
         type={type}
-        className="ds-sdk-labelled-input__input focus:ring-0 h-md w-md border-0 cursor-pointer accent-gray-600 min-w-[16px]"
         checked={checked}
         aria-checked={checked}
         onInput={onChange}

@@ -40,13 +40,14 @@ export const hi_IN = {
   CategoryFilters: {
     results: '{phrase} के लिए परिणाम',
     products: '{totalCount} प्रोडक्ट्स',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: '{discountPrice} जितना कम ',
     startingAt: '{productPrice} से शुरू',
     bundlePrice: '{fromBundlePrice} से {toBundlePrice} तक',
     from: '{productPrice} से ',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

@@ -47,13 +47,14 @@ export const en_US = {
   CategoryFilters: {
     results: 'results for {phrase}',
     products: '{totalCount} products',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'As low as {discountPrice}',
     startingAt: 'Starting at {productPrice}',
     bundlePrice: 'From {fromBundlePrice} To {toBundlePrice}',
     from: 'From {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

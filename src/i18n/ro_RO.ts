@@ -40,13 +40,14 @@ export const ro_RO = {
   CategoryFilters: {
     results: 'rezultate pentru {phrase}',
     products: '{totalCount} produse',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Preț redus până la {discountPrice}',
     startingAt: 'Începând de la {productPrice}',
     bundlePrice: 'De la {fromBundlePrice} la {toBundlePrice}',
     from: 'De la {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

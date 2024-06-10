@@ -40,13 +40,14 @@ export const en_GA = {
   CategoryFilters: {
     results: 'torthaí do {phrase}',
     products: '{totalCount} táirge',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Chomh híseal le {discountPrice}',
     startingAt: 'Ag tosú ag {productPrice}',
     bundlePrice: 'Ó {fromBundlePrice} go {toBundlePrice}',
     from: 'Ó {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

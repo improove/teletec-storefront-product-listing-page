@@ -40,13 +40,14 @@ export const Sorani = {
   CategoryFilters: {
     results: 'ئەنجامەکان بۆ {phrase}',
     products: '{totalCount} بەرهەمەکان',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'بەقەد نزمیی {discountPrice}',
     startingAt: 'دەستپێدەکات لە {productPrice}',
     bundlePrice: 'لە {fromBundlePrice} بۆ {toBundlePrice}',
     from: 'لە {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

@@ -40,13 +40,14 @@ export const zh_Hans_CN = {
   CategoryFilters: {
     results: '{phrase} 的结果',
     products: '{totalCount} 个产品',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: '低至 {discountPrice}',
     startingAt: '起价为 {productPrice}',
     bundlePrice: '从 {fromBundlePrice} 到 {toBundlePrice}',
     from: '从 {productPrice} 起',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

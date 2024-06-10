@@ -40,13 +40,14 @@ export const fi_FI = {
   CategoryFilters: {
     results: 'tulosta ilmaukselle {phrase}',
     products: '{totalCount} tuotetta',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Parhaimmillaan {discountPrice}',
     startingAt: 'Alkaen {productPrice}',
     bundlePrice: '{fromBundlePrice} alkaen {toBundlePrice} asti',
     from: '{productPrice} alkaen',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

@@ -40,13 +40,14 @@ export const bg_BG = {
   CategoryFilters: {
     results: 'резултати за {phrase}',
     products: '{totalCount} продукта',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Само {discountPrice}',
     startingAt: 'От {productPrice}',
     bundlePrice: 'От {fromBundlePrice} до {toBundlePrice}',
     from: 'От {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

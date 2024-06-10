@@ -40,13 +40,14 @@ export const fa_IR = {
   CategoryFilters: {
     results: 'نتایج برای {phrase}',
     products: '{totalCount} محصولات',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'برابر با {discountPrice}',
     startingAt: 'شروع از {productPrice}',
     bundlePrice: 'از {fromBundlePrice} تا {toBundlePrice}',
     from: 'از {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

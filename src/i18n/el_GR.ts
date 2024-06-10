@@ -40,13 +40,14 @@ export const el_GR = {
   CategoryFilters: {
     results: 'αποτελέσματα για {phrase}',
     products: '{totalCount} προϊόντα',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Τόσο χαμηλά όσο {discountPrice}',
     startingAt: 'Έναρξη από {productPrice}',
     bundlePrice: 'Από {fromBundlePrice} Προς {toBundlePrice}',
     from: 'Από {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

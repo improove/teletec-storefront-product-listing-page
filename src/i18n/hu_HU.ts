@@ -40,13 +40,14 @@ export const hu_HU = {
   CategoryFilters: {
     results: 'eredmények a következőre: {phrase}',
     products: '{totalCount} termék',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Ennyire alacsony: {discountPrice}',
     startingAt: 'Kezdő ár: {productPrice}',
     bundlePrice: 'Ettől: {fromBundlePrice} Eddig: {toBundlePrice}',
     from: 'Ettől: {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

@@ -40,13 +40,14 @@ export const nl_NL = {
   CategoryFilters: {
     results: 'resultaten voor {phrase}',
     products: '{totalCount} producten',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Slechts {discountPrice}',
     startingAt: 'Vanaf {productPrice}',
     bundlePrice: 'Van {fromBundlePrice} tot {toBundlePrice}',
     from: 'Vanaf {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

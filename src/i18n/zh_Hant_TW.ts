@@ -40,13 +40,14 @@ export const zh_Hant_TW = {
   CategoryFilters: {
     results: '{phrase} 的結果',
     products: '{totalCount} 個產品',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: '低至 {discountPrice}',
     startingAt: '起價為 {productPrice}',
     bundlePrice: '從 {fromBundlePrice} 到 {toBundlePrice}',
     from: '起價為 {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

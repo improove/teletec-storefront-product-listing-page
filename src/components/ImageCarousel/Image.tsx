@@ -32,8 +32,9 @@ export const Image = ({
     <img
       className="lazyloaded"
       ref={imageRef}
-      src={imageUrl}
-      data-src={typeof image === 'object' ? image.src : image}
+      src={`${imageUrl}?optimize=medium&bg-color=255,255,255&fit=bounds&height=250&width=250&canvas=250:250`}
+      data-src={typeof image === 'object' ? `${image.src}?optimize=medium&bg-color=255,255,255&fit=bounds&height=250&width=250&canvas=250:250` :
+        `${image}?optimize=medium&bg-color=255,255,255&fit=bounds&height=250&width=250&canvas=250:250`}
       srcset={typeof image === 'object' ? image.srcset : null}
       alt={alt}
     />

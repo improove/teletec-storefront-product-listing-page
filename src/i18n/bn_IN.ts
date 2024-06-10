@@ -40,13 +40,14 @@ export const bn_IN = {
   CategoryFilters: {
     results: '{phrase} এর জন্য ফলাফল',
     products: '{totalCount} প্রোডাক্টগুলি',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'এত কম যে {discountPrice}',
     startingAt: 'শুরু হচ্ছে {productPrice}',
     bundlePrice: '{fromBundlePrice} থেকে {toBundlePrice} পর্যন্ত',
     from: '{productPrice} থেকে',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

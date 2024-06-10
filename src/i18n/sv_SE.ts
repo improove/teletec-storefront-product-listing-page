@@ -40,13 +40,14 @@ export const sv_SE = {
   CategoryFilters: {
     results: 'resultat för {phrase}',
     products: '{totalCount} produkter',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Så lite som {discountPrice}',
     startingAt: 'Från {productPrice}',
     bundlePrice: 'Från {fromBundlePrice} till {toBundlePrice}',
     from: 'Från {productPrice}',
+    addToCart: 'Lägg i varukorgen',
   },
   ProductContainers: {
     minquery:

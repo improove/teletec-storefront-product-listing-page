@@ -40,13 +40,14 @@ export const tr_TR = {
   CategoryFilters: {
     results: '{phrase} için sonuçlar',
     products: '{totalCount} ürün',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'En düşük: {discountPrice}',
     startingAt: 'Başlangıç fiyatı: {productPrice}',
     bundlePrice: '{fromBundlePrice} - {toBundlePrice} arası',
     from: 'Başlangıç: {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

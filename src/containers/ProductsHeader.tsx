@@ -117,9 +117,10 @@ export const ProductsHeader: FunctionComponent<Props> = ({
               {storeCtx?.config?.listview && <ViewSwitcher/>}
               <div className="toolbar-sorter sorter">
                 <SortDropdown
-                    sortOptions={sortOptions}
-                    value={sortBy}
-                    onChange={onSortChange}
+                  sortOptions={sortOptions}
+                  value={sortBy}
+                  screenSize={screenSize}
+                  onChange={onSortChange}
                 />
               </div>
             </>

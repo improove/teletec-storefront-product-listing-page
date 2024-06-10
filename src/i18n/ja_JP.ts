@@ -40,13 +40,14 @@ export const ja_JP = {
   CategoryFilters: {
     results: '{phrase}の検索結果',
     products: '{totalCount}製品',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: '割引料金 : {discountPrice}',
     startingAt: '初年度価格 : {productPrice}',
     bundlePrice: '{fromBundlePrice} から {toBundlePrice}',
     from: '{productPrice} から',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

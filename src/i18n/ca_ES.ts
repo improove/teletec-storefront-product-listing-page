@@ -40,13 +40,14 @@ export const ca_ES = {
   CategoryFilters: {
     results: 'Resultats per a {phrase}',
     products: '{totalCount}productes',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Mínim de {discountPrice}',
     startingAt: 'A partir de {productPrice}',
     bundlePrice: 'Des de {fromBundlePrice} A {toBundlePrice}',
     from: 'Des de {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

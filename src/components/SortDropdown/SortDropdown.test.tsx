@@ -18,6 +18,7 @@ describe('WidgetSDK - UIKit/SortDropdown', () => {
       <SortDropdown
         value="relevance_DESC"
         sortOptions={[{ label: 'Most Relevant', value: 'relevance_DESC' }]}
+        screenSize={{ mobile: false, tablet: false, desktop: true, columns: 4 }}
         onChange={handleChange}
       />
     );

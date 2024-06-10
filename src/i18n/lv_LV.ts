@@ -40,13 +40,14 @@ export const lv_LV = {
   CategoryFilters: {
     results: '{phrase} rezultāti',
     products: '{totalCount} produkti',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Tik zemu kā {discountPrice}',
     startingAt: 'Sākot no {productPrice}',
     bundlePrice: 'No {fromBundlePrice} uz{toBundlePrice}',
     from: 'No {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

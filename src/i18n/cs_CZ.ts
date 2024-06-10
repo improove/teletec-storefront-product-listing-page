@@ -40,13 +40,14 @@ export const cs_CZ = {
   CategoryFilters: {
     results: 'výsledky pro {phrase}',
     products: 'Produkty: {totalCount}',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Pouze za {discountPrice}',
     startingAt: 'Cena od {productPrice}',
     bundlePrice: 'Z {fromBundlePrice} na {toBundlePrice}',
     from: 'Z {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

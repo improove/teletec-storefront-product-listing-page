@@ -40,13 +40,14 @@ export const ar_AE = {
   CategoryFilters: {
     results: 'النتائج لـ {phrase}',
     products: 'منتجات {totalCount}',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'بقيمة {discountPrice} فقط',
     startingAt: 'بدءًا من {productPrice}',
     bundlePrice: 'من {fromBundlePrice} إلى {toBundlePrice}',
     from: 'من {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

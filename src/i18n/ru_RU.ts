@@ -40,13 +40,14 @@ export const ru_RU = {
   CategoryFilters: {
     results: 'Результаты по запросу «{phrase}»',
     products: 'Продукты: {totalCount}',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Всего за {discountPrice}',
     startingAt: 'От {productPrice}',
     bundlePrice: 'От {fromBundlePrice} до {toBundlePrice}',
     from: 'От {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

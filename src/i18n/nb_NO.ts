@@ -40,13 +40,14 @@ export const nb_NO = {
   CategoryFilters: {
     results: 'resultater for {phrase}',
     products: '{totalCount} produkter',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: 'Så lavt som {discountPrice}',
     startingAt: 'Fra {productPrice}',
     bundlePrice: 'Fra {fromBundlePrice} til {toBundlePrice}',
     from: 'Fra {productPrice}',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

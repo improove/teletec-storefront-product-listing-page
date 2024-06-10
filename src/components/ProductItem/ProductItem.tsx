@@ -233,6 +233,10 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
     );
   }
 
+  const customerDiscount = (customerPrice?.price) ? (
+    Math.round(100 - (customerPrice.price * 100 / item.product.price_range.minimum_price.final_price.value))
+  ) : 0;
+
   return (
     <li className="item product product-item" key={productView?.id}>
     <div
@@ -281,7 +285,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
                 <>
                   <div className="product-tile-price">
                     <div className="price-box price-final_price">
-                      <span className="price-container price-final_price tax weee">
+                      <span className="price-container price-final_price tax weee price">
                         {customerPrice.price} {currencySymbol}
                       </span>
                     </div>
@@ -324,9 +328,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
                 <div className="visma-discount-holder">
                   <span className="label">Rabatt: </span>
                   <span className="visma-discount value">
-                    {
-                      Math.round(100 - (customerPrice.price * 100 / item.product.price_range.minimum_price.final_price.value))
-                    }
+                    {customerDiscount}%
                   </span>
                 </div>
               ) : (

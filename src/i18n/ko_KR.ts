@@ -40,13 +40,14 @@ export const ko_KR = {
   CategoryFilters: {
     results: '{phrase}에 대한 검색 결과',
     products: '{totalCount}개 제품',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: '최저 {discountPrice}',
     startingAt: '최저가: {productPrice}',
     bundlePrice: '{fromBundlePrice} ~ {toBundlePrice}',
     from: '{productPrice}부터',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

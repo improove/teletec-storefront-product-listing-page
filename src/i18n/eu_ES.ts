@@ -40,13 +40,14 @@ export const eu_ES = {
   CategoryFilters: {
     results: '{phrase} bilaketaren emaitzak',
     products: '{totalCount} produktu',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: '{discountPrice} bezain baxua',
     startingAt: '{productPrice}-tatik hasita',
     bundlePrice: '{fromBundlePrice} eta {toBundlePrice} artean',
     from: '{productPrice}-tatik hasita',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:

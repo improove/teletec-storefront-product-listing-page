@@ -40,13 +40,14 @@ export const hy_AM = {
   CategoryFilters: {
     results: 'արդյունքներ {phrase}-ի համար',
     products: '{totalCount} ապրանքներ',
-    productsShown: 'Shown {from} - {to} of {totalCount} products',
+    productsShown: 'Shown {from} - {to} of {totalCount}',
   },
   ProductCard: {
     asLowAs: '{discountPrice}-ի չափ ցածր',
     startingAt: 'Սկսած {productPrice}-ից',
     bundlePrice: '{fromBundlePrice}-ից մինչև {toBundlePrice}',
     from: '{productPrice}-ից',
+    addToCart: 'Add to cart',
   },
   ProductContainers: {
     minquery:
