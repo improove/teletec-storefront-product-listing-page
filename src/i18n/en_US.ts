@@ -69,4 +69,8 @@ export const en_US = {
   ListView: {
     viewDetails: 'View details',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

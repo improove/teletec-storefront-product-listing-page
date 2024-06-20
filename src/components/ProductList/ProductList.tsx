@@ -104,30 +104,7 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
         </div>
       )}
 
-      {listview && viewType === 'listview' ? (
-        <div className="w-full">
-          <div className="ds-sdk-product-list__list-view-default mt-md grid grid-cols-none pt-[15px] w-full gap-[10px]">
-            {products?.map((product) => (
-              <ProductItem
-                item={product}
-                setError={setError}
-                key={product?.productView?.id}
-                currencySymbol={currencySymbol}
-                currencyRate={currencyRate}
-                setRoute={setRoute}
-                refineProduct={refineProduct}
-                setCartUpdated={setCartUpdated}
-                setItemAdded={setItemAdded}
-                addToCart={addToCart}
-                customerPrice={customerPrices?.find(
-                  (customerPrice) =>
-                    customerPrice.sku === product.productView?.sku
-                )}
-              />
-            ))}
-          </div>
-        </div>
-      ) : (
+      {(
         <div
           style={{
             gridTemplateColumns: `repeat(${numberOfColumns}, minmax(0, 1fr))`,
@@ -141,7 +118,7 @@ export const ProductList: FunctionComponent<ProductListProps> = ({
               screenSize={screenSize}
               pageInfo={productsCtx.pageInfo}
           />
-          <div className="products wrapper grid products-grid">
+          <div className={`products wrapper ${(listview && viewType === 'listView') ? 'list products-list' : 'grid products-grid'}`}>
             <ol className="products list items product-items">
               {products?.map((product) => (
                 <ProductItem

@@ -96,6 +96,7 @@ export const ProductsHeader: FunctionComponent<Props> = ({
   return (
     <div className="toolbar toolbar-products">
         <div className="modes-amount-container">
+          {storeCtx?.config?.listview && <ViewSwitcher/>}
           {(totalCount > 0) && <p className="toolbar-amount" id="toolbar-amount">{results}</p>}
         </div>
         <div>
@@ -114,7 +115,6 @@ export const ProductsHeader: FunctionComponent<Props> = ({
 
         {totalCount > 0 && (
             <>
-              {storeCtx?.config?.listview && <ViewSwitcher/>}
               <div className="toolbar-sorter sorter">
                 <SortDropdown
                   sortOptions={sortOptions}

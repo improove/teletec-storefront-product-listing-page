@@ -82,7 +82,8 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
       optimizeImages,
       imageBaseWidth,
       imageCarousel,
-      showPrice },
+      showPrice,
+      listview},
   } = useStore();
 
   const { screenSize } = useSensor();
@@ -237,23 +238,154 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
     Math.round(100 - (customerPrice.price * 100 / item.product.price_range.minimum_price.final_price.value))
   ) : 0;
 
+  if (listview && viewType === 'listView') {
+    return (
+      <>
+        <li className="item product product-item" key={productView?.id}>
+          <div className="product-item-info">
+            <a
+              href={productUrl as string}
+              onClick={onProductClick}
+              className="product photo product-item-photo"
+            >
+              <div className="lazyload-image-wrapper  product-image-wrapper">
+                {productImageArray.length ? (
+                  <ImageCarousel
+                    images={
+                      optimizedImageArray.length
+                        ? optimizedImageArray
+                        : productImageArray
+                    }
+                    productName={product.name}
+                    carouselIndex={carouselIndex}
+                    setCarouselIndex={setCarouselIndex}
+                  />
+                ) : (
+                  <NoImage
+                    className={`max-h-[45rem] w-full object-cover object-center lg:w-full`}
+                  />
+                )}
+              </div>
+            </a>
+            <div className="product details product-item-details">
+              <div className="product-item-main-info">
+                <div className="product-item-sku">
+                  <span className="label">Artikelnr</span>
+                  <span>{product.sku}</span>
+                </div>
+                <div className={`product-item-brand`}>
+                  <span className="label">Producer</span>
+                  <span>{manufacturerData}</span>
+                </div>
+                <strong className="product name product-item-name">
+                  <a
+                    href={productUrl as string}
+                    onClick={onProductClick}
+                    className="product-item-link"
+                  >{product.name !== null && htmlStringDecode(product.name)}</a>
+                </strong>
+                <div className={`product description product-item-description`}>
+                  {product.short_description?.html && (
+                    <div className={`product description product-item-description`}
+                         dangerouslySetInnerHTML={{
+                           __html: product.short_description.html,
+                         }}>
+                    </div>
+                  )}
+                </div>
+                {
+                  (showPrice) ? (
+                    (customerPrice?.price) ? (
+                      <>
+                        <div className="product-tile-price">
+                          <div className="price-box price-final_price">
+                            <span className="price-container price-final_price tax weee price">
+                              {customerPrice.price} {currencySymbol}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="product-tile-stock">
+                          <div className="visma-stock-holder">
+                            <span className="visma-stock">{customerPrice.stock_qty}</span>
+                            <span className="label">Lager: </span>
+                            <span className="unit">st</span>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <CustomerPriceShimmer/>
+                    )
+                  ) : (<></>)
+                }
+                <div className="amshopby-option-link">
+                  {productManufacturer()}
+                </div>
+                {showPrice &&
+                    <div className="visma-product-data-container">
+                        <div className="visma-list-price-holder">
+                            <span className="label">Listpris: </span>
+                            <span className="visma-list-price value">
+                    <ProductPrice
+                        item={refinedProduct ?? item}
+                        isBundle={isBundle}
+                        isGrouped={isGrouped}
+                        isGiftCard={isGiftCard}
+                        isConfigurable={isConfigurable}
+                        isComplexProductView={isComplexProductView}
+                        discount={discount}
+                        currencySymbol={currencySymbol}
+                        currencyRate={currencyRate}
+                    />
+                  </span>
+                        </div>
+                      {(customerPrice?.price) ? (
+                        <div className="visma-discount-holder">
+                          <span className="label">Rabatt: </span>
+                          <span className="visma-discount value">
+                    {customerDiscount}%
+                  </span>
+                        </div>
+                      ) : (
+                        <DiscountShimmer/>
+                      )}
+                    </div>
+                }
+              </div>
+              <div className="product-item-inner">
+                <div className="add-to-container">
+                  <div className="product actions product-item-actions">
+                    <div className="actions-primary">
+                      {product?.price_range?.minimum_price?.final_price?.value ? (
+                        <>
+                          <AddToCartButton onClick={handleAddToCart}/>
+                        </>
+                      ) : (<></>)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </>
+    );
+  }
+
   return (
     <li className="item product product-item" key={productView?.id}>
-    <div
-      className="product-item-info"
-    >
-      <a
+      <div className="product-item-info">
+        <a
           href={productUrl as string}
           onClick={onProductClick}
           className="product photo product-item-photo"
-      >
-        <div className="lazyload-image-wrapper  product-image-wrapper">
-          {productImageArray.length ? (
-            <ImageCarousel
-              images={
-                optimizedImageArray.length
-                  ? optimizedImageArray
-                : productImageArray
+        >
+          <div className="lazyload-image-wrapper  product-image-wrapper">
+            {productImageArray.length ? (
+              <ImageCarousel
+                images={
+                  optimizedImageArray.length
+                    ? optimizedImageArray
+                    : productImageArray
                 }
                 productName={product.name}
                 carouselIndex={carouselIndex}
@@ -350,7 +482,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
             )} */}
         </div>
         <div className="product-item-inner">
-        <div className="add-to-container">
+          <div className="add-to-container">
             <div className="product actions product-item-actions">
               <div className="actions-primary">
                 {product?.price_range?.minimum_price?.final_price?.value ? (

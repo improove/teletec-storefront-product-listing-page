@@ -7,14 +7,13 @@ it.
 */
 
 import { FunctionComponent } from 'preact';
-import { useProducts } from 'src/context';
+import { useProducts, useTranslation } from 'src/context';
 import { handleViewType } from 'src/utils/handleUrlFilters';
-
-import GridView from '../../icons/gridView.svg';
-import ListView from '../../icons/listView.svg';
 
 export const ViewSwitcher: FunctionComponent = () => {
   const { viewType, setViewType } = useProducts();
+
+  const translation = useTranslation();
 
   const handleClick = (viewType: string): void => {
     handleViewType(viewType);
@@ -22,23 +21,36 @@ export const ViewSwitcher: FunctionComponent = () => {
   };
 
   return (
-    <div className="flex justify-between">
-      <button
-        className={`flex items-center ${
-          viewType === 'gridview' ? 'bg-gray-100' : ''
-        } ring-black ring-opacity-5  p-sm text-sm h-[32px] border border-gray-300`}
-        onClick={() => handleClick('gridview')}
-      >
-        <GridView className="h-[20px] w-[20px]" />
-      </button>
-      <button
-        className={`flex items-center ${
-          viewType === 'listview' ? 'bg-gray-100' : ''
-        } ring-black ring-opacity-5 p-sm text-sm h-[32px] border border-gray-300`}
-        onClick={() => handleClick('listview')}
-      >
-        <ListView className="h-[20px] w-[20px]" />
-      </button>
+    <div className="modes">
+      {(viewType === 'gridView') &&
+        <>
+          <strong className={`modes-mode mode-grid active`}>
+              <span>{translation.ViewSwitcher.grid}</span>
+          </strong>
+
+          <span className={`modes-mode_label active`}>
+            <span>{translation.ViewSwitcher.grid}</span>
+          </span>
+
+          <a className={`modes-mode mode-list`} onClick={() => handleClick('listView')}>
+            <span>{translation.ViewSwitcher.list}</span>
+          </a>
+        </>
+      }
+      {
+        (viewType === 'listView') &&
+          <>
+            <a className={`modes-mode mode-grid`} onClick={() => handleClick('gridView')}>
+              <span>{translation.ViewSwitcher.grid}</span>
+            </a>
+            <span className={`modes-mode_label active`}>
+              <span>{translation.ViewSwitcher.list}</span>
+            </span>
+            <strong className={`modes-mode mode-list active`}>
+              <span>{translation.ViewSwitcher.list}</span>
+            </strong>
+          </>
+      }
     </div>
   );
 };
