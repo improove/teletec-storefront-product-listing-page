@@ -59,4 +59,8 @@ export const nb_NO = {
   SearchBar: {
     placeholder: 'Søk …',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

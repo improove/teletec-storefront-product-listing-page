@@ -59,4 +59,8 @@ export const ja_JP = {
   SearchBar: {
     placeholder: '検索',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

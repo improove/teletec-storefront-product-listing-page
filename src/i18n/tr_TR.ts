@@ -59,4 +59,8 @@ export const tr_TR = {
   SearchBar: {
     placeholder: 'Ara...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

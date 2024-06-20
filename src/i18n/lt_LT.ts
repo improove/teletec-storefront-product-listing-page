@@ -59,4 +59,8 @@ export const lt_LT = {
   SearchBar: {
     placeholder: 'Ieška...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

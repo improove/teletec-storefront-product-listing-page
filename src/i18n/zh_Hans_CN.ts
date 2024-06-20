@@ -59,4 +59,8 @@ export const zh_Hans_CN = {
   SearchBar: {
     placeholder: '搜索...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

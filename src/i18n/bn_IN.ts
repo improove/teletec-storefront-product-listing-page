@@ -59,4 +59,8 @@ export const bn_IN = {
   SearchBar: {
     placeholder: 'অনুসন্ধান করুন...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

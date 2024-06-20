@@ -59,4 +59,8 @@ export const id_ID = {
   SearchBar: {
     placeholder: 'Cari...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

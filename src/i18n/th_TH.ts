@@ -59,4 +59,8 @@ export const th_TH = {
   SearchBar: {
     placeholder: 'ค้นหา...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

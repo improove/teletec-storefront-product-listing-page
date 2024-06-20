@@ -59,4 +59,8 @@ export const ro_RO = {
   SearchBar: {
     placeholder: 'Căutare...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

@@ -59,4 +59,8 @@ export const ar_AE = {
   SearchBar: {
     placeholder: 'بحث...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

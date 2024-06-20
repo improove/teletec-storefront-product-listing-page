@@ -59,4 +59,8 @@ export const fa_IR = {
   SearchBar: {
     placeholder: 'جستجو...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

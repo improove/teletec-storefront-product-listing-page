@@ -59,4 +59,8 @@ export const cs_CZ = {
   SearchBar: {
     placeholder: 'Hledat...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

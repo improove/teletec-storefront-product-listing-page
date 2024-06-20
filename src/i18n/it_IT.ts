@@ -59,4 +59,8 @@ export const it_IT = {
   SearchBar: {
     placeholder: 'Cerca...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

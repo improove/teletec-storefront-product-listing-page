@@ -59,4 +59,8 @@ export const hy_AM = {
   SearchBar: {
     placeholder: 'Որոնել...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

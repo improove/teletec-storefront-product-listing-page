@@ -59,4 +59,8 @@ export const en_GA = {
   SearchBar: {
     placeholder: 'Cuardaigh...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

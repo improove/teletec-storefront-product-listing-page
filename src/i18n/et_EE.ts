@@ -59,4 +59,8 @@ export const et_EE = {
   SearchBar: {
     placeholder: 'Otsi…',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

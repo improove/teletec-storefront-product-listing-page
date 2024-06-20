@@ -59,4 +59,8 @@ export const gl_ES = {
   SearchBar: {
     placeholder: 'Buscar...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

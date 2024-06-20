@@ -59,4 +59,8 @@ export const hu_HU = {
   SearchBar: {
     placeholder: 'Keresés...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

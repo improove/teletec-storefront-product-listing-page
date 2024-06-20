@@ -59,4 +59,8 @@ export const fi_FI = {
   SearchBar: {
     placeholder: 'Hae...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

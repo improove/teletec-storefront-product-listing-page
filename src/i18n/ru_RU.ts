@@ -59,4 +59,8 @@ export const ru_RU = {
   SearchBar: {
     placeholder: 'Поиск...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

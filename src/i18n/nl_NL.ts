@@ -59,4 +59,8 @@ export const nl_NL = {
   SearchBar: {
     placeholder: 'Zoeken...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

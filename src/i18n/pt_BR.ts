@@ -59,4 +59,8 @@ export const pt_BR = {
   SearchBar: {
     placeholder: 'Pesquisar...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

@@ -59,4 +59,8 @@ export const ko_KR = {
   SearchBar: {
     placeholder: '검색...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

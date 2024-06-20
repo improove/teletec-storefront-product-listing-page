@@ -59,4 +59,8 @@ export const da_DK = {
   SearchBar: {
     placeholder: 'Søg...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

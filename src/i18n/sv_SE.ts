@@ -59,4 +59,8 @@ export const sv_SE = {
   SearchBar: {
     placeholder: 'Sök …',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

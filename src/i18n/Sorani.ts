@@ -59,4 +59,8 @@ export const Sorani = {
   SearchBar: {
     placeholder: 'گەڕان...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

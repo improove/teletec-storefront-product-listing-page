@@ -59,4 +59,8 @@ export const lv_LV = {
   SearchBar: {
     placeholder: 'Meklēt…',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

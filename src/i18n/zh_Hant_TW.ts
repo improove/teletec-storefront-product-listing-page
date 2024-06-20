@@ -59,4 +59,8 @@ export const zh_Hant_TW = {
   SearchBar: {
     placeholder: '搜尋…',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

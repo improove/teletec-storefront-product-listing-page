@@ -59,4 +59,8 @@ export const bg_BG = {
   SearchBar: {
     placeholder: 'Търсене...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

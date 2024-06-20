@@ -59,4 +59,8 @@ export const en_GB = {
   SearchBar: {
     placeholder: 'Search...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

@@ -59,4 +59,8 @@ export const eu_ES = {
   SearchBar: {
     placeholder: 'Bilatu...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

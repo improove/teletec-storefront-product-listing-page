@@ -59,4 +59,8 @@ export const hi_IN = {
   SearchBar: {
     placeholder: 'खोज...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };

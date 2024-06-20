@@ -59,4 +59,8 @@ export const el_GR = {
   SearchBar: {
     placeholder: 'Αναζήτηση...',
   },
+  ViewSwitcher: {
+    grid: 'Grid view',
+    list: 'List view',
+  },
 };
