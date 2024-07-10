@@ -48,6 +48,9 @@ export const da_DK = {
     bundlePrice: 'Fra {fromBundlePrice} til {toBundlePrice}',
     from: 'Fra {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

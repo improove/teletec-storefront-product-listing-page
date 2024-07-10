@@ -48,6 +48,9 @@ export const gl_ES = {
     bundlePrice: 'Desde {fromBundlePrice} ata {toBundlePrice}',
     from: 'Desde {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

@@ -48,6 +48,9 @@ export const lt_LT = {
     bundlePrice: 'Nuo {fromBundlePrice} iki {toBundlePrice}',
     from: 'Nuo {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

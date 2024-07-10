@@ -58,8 +58,8 @@ const getProductPrice = (
   const convertedPrice = currencyRate
     ? price?.value * parseFloat(currencyRate)
     : price?.value;
-
-  return convertedPrice ? `${convertedPrice.toFixed(2)} ${currency}` : '';
+  const formatter = new Intl.NumberFormat('en-US');
+  return convertedPrice ? `${formatter.format(parseFloat(convertedPrice.toFixed(2)))} ${currency}` : '';
 };
 
 export { getProductPrice };

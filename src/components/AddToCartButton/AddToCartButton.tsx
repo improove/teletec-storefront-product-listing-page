@@ -10,13 +10,16 @@ it.
 import { FunctionComponent } from 'preact';
 
 import { useTranslation } from '../../context/translation';
+import {AddToCartState} from '../../types/interface';
 
 export interface AddToCartButtonProps {
   onClick: (e: any) => any;
+  addToCartState?: AddToCartState;
 }
 
 export const AddToCartButton: FunctionComponent<AddToCartButtonProps> = ({
   onClick,
+  addToCartState,
 }: AddToCartButtonProps) => {
   const translation = useTranslation();
 
@@ -25,7 +28,16 @@ export const AddToCartButton: FunctionComponent<AddToCartButtonProps> = ({
           className="action tocart"
           onClick={onClick}
       >
-        {translation.ProductCard.addToCart}
+        {(() => {
+          switch (addToCartState) {
+            case "idle":   return translation.ProductCard.addToCart;
+            case "loading": return translation.ProductCard.addingToCart;
+            case "success":  return translation.ProductCard.addedToCart;
+            case "error":  return translation.ProductCard.error;
+            default:      return translation.ProductCard.addToCart;
+          }
+        })()}
+        {/*{addToCartState === 'loading' ? translation.ProductCard.addingToCart : translation.ProductCard.addToCart}*/}
       </button>
   );
 };

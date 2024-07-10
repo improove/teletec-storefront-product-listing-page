@@ -48,6 +48,9 @@ export const fa_IR = {
     bundlePrice: 'از {fromBundlePrice} تا {toBundlePrice}',
     from: 'از {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

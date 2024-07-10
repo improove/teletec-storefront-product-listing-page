@@ -30,7 +30,7 @@ export const FilterButton: FunctionComponent<FilterButtonProps> = ({
       <strong>{showFilters ? translation.Filter.hideTitle : translation.Filter.showTitle}</strong>
     </button>
   ) : (
-    <div className="ds-sdk-filter-button-desktop">
+    <div className="block-title filter-title ds-sdk-filter-button-desktop">
       <strong
         className="flex items-center"
       >

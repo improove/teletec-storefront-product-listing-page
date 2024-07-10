@@ -48,6 +48,9 @@ export const hi_IN = {
     bundlePrice: '{fromBundlePrice} से {toBundlePrice} तक',
     from: '{productPrice} से ',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

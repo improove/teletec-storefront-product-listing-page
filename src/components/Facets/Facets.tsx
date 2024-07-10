@@ -15,6 +15,7 @@ import {FilterButton} from "../FilterButton";
 import SliderDoubleControl from '../SliderDoubleControl';
 import { RangeFacet } from './Range/RangeFacet';
 import { ScalarFacet } from './Scalar/ScalarFacet';
+import {SelectedFilters} from "./SelectedFilters";
 
 interface FacetsProps {
   searchFacets: FacetType[];
@@ -34,7 +35,7 @@ export const Facets: FunctionComponent<FacetsProps> = ({
   const { screenSize } = useSensor();
 
   return (
-    <div className="block active" id="layered-filter-block">
+    <div className="block active filter" id="layered-filter-block">
       <FilterButton
         displayFilter={() => setShowFilters(!showFilters)}
         type={(screenSize.mobile) ? 'mobile' : 'desktop'}
@@ -42,6 +43,7 @@ export const Facets: FunctionComponent<FacetsProps> = ({
       />
       {(!screenSize.mobile || showFilters) &&
       <div className="block-content filter-content">
+        <SelectedFilters />
         <div className="filter-options" id="narrow-by-list">
           <form>
             {searchFacets?.map((facet) => {

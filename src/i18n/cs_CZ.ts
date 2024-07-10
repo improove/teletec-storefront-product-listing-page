@@ -48,6 +48,9 @@ export const cs_CZ = {
     bundlePrice: 'Z {fromBundlePrice} na {toBundlePrice}',
     from: 'Z {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

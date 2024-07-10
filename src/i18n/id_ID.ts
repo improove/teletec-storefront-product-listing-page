@@ -48,6 +48,9 @@ export const id_ID = {
     bundlePrice: 'Mulai {fromBundlePrice} hingga {toBundlePrice}',
     from: 'Mulai {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

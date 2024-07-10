@@ -48,6 +48,9 @@ export const bn_IN = {
     bundlePrice: '{fromBundlePrice} থেকে {toBundlePrice} পর্যন্ত',
     from: '{productPrice} থেকে',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

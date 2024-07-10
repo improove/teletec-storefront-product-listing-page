@@ -48,6 +48,9 @@ export const fr_FR = {
     bundlePrice: 'De {fromBundlePrice} à {toBundlePrice}',
     from: 'De {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

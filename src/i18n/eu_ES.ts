@@ -48,6 +48,9 @@ export const eu_ES = {
     bundlePrice: '{fromBundlePrice} eta {toBundlePrice} artean',
     from: '{productPrice}-tatik hasita',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

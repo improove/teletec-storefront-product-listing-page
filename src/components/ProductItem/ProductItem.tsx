@@ -16,6 +16,7 @@ import '../ProductItem/ProductItem.css';
 import { useCart, useProducts, useSensor, useStore } from '../../context';
 import NoImage from '../../icons/NoImage.svg';
 import {
+  AddToCartState,
   Brand,
   CustomerPrice,
   Product,
@@ -75,6 +76,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
   >();
   const [refinedProduct, setRefinedProduct] = useState<RefinedProduct>();
   const [isHovering, setIsHovering] = useState(false);
+  const [addToCartState, setAddToCartState] = useState('idle' as AddToCartState);
   const { addToCartGraphQL, refreshCart } = useCart();
   const { viewType } = useProducts();
   const {
@@ -157,9 +159,11 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
     if (isSimple) {
       if (addToCart) {
         //Custom add to cart function passed in
+        setAddToCartState('loading');
         await addToCart(productView.sku, [], 1);
       } else {
         // Add to cart using GraphQL & Luma extension
+        setAddToCartState('loading');
         const response = await addToCartGraphQL(productView.sku);
 
         if (
@@ -167,13 +171,23 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
           response?.data?.addProductsToCart?.user_errors.length > 0
         ) {
           setError(true);
+          setAddToCartState('error');
+          setTimeout(() => {
+            setAddToCartState('idle');
+          }, 2000);
           return;
         }
-
         setItemAdded(product.name);
         refreshCart && refreshCart();
         setCartUpdated(true);
+        setAddToCartState('success');
+        setTimeout(() => {
+          setAddToCartState('idle');
+        }, 2000);
       }
+      setTimeout(() => {
+        setAddToCartState('idle');
+      }, 2000);
     } else if (productUrl) {
       window.open(productUrl, '_self');
     }
@@ -238,6 +252,11 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
     Math.round(100 - (customerPrice.price * 100 / item.product.price_range.minimum_price.final_price.value))
   ) : 0;
 
+  const priceFormatter = (price: number) => {
+    const formatter = new Intl.NumberFormat('en-US');
+    return price ? `${formatter.format(parseFloat(price.toFixed(2)))}` : '';
+  };
+
   if (listview && viewType === 'listView') {
     return (
       <>
@@ -300,7 +319,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
                         <div className="product-tile-price">
                           <div className="price-box price-final_price">
                             <span className="price-container price-final_price tax weee price">
-                              {customerPrice.price} {currencySymbol}
+                              {priceFormatter(customerPrice.price)} {currencySymbol}
                             </span>
                           </div>
                         </div>
@@ -357,7 +376,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
                     <div className="actions-primary">
                       {product?.price_range?.minimum_price?.final_price?.value ? (
                         <>
-                          <AddToCartButton onClick={handleAddToCart}/>
+                          <AddToCartButton onClick={handleAddToCart} addToCartState={addToCartState}/>
                         </>
                       ) : (<></>)}
                     </div>
@@ -418,7 +437,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
                   <div className="product-tile-price">
                     <div className="price-box price-final_price">
                       <span className="price-container price-final_price tax weee price">
-                        {customerPrice.price} {currencySymbol}
+                        {priceFormatter(customerPrice.price)} {currencySymbol}
                       </span>
                     </div>
                   </div>
@@ -487,7 +506,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
               <div className="actions-primary">
                 {product?.price_range?.minimum_price?.final_price?.value ? (
                     <>
-                      <AddToCartButton onClick={handleAddToCart}/>
+                      <AddToCartButton onClick={handleAddToCart} addToCartState={addToCartState}/>
                     </>
                 ) : (<></>)}
               </div>
@@ -518,9 +537,9 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
         <div className="pb-4 mt-sm">
           {product?.price_range?.minimum_price?.final_price?.value ? (
               <>
-                {screenSize.mobile && <AddToCartButton onClick={handleAddToCart} />}
+                {screenSize.mobile && <AddToCartButton onClick={handleAddToCart} addToCartState={addToCartState}/>}
                 {isHovering && screenSize.desktop && (
-                    <AddToCartButton onClick={handleAddToCart} />
+                    <AddToCartButton onClick={handleAddToCart} addToCartState={addToCartState}/>
                 )}
               </>
           ) : (<></>)}

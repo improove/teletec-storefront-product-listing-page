@@ -48,6 +48,9 @@ export const zh_Hant_TW = {
     bundlePrice: '從 {fromBundlePrice} 到 {toBundlePrice}',
     from: '起價為 {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

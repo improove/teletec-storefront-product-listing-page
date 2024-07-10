@@ -48,6 +48,9 @@ export const et_EE = {
     bundlePrice: 'Alates {fromBundlePrice} kuni {toBundlePrice}',
     from: 'Alates {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

@@ -48,6 +48,9 @@ export const en_GB = {
     bundlePrice: 'From {fromBundlePrice} To {toBundlePrice}',
     from: 'From {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

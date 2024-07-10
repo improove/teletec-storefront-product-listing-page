@@ -48,6 +48,9 @@ export const nl_NL = {
     bundlePrice: 'Van {fromBundlePrice} tot {toBundlePrice}',
     from: 'Vanaf {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

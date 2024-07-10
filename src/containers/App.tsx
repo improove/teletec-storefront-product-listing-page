@@ -79,7 +79,7 @@ export const App: FunctionComponent = () => {
                       screenSize={screenSize}
                     />
                     }
-                    <SelectedFilters />
+                    {/*<SelectedFilters />*/}
 
                     <ProductsContainer showFilters={showFilters} />
                   </div>

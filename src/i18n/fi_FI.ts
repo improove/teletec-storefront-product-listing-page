@@ -48,6 +48,9 @@ export const fi_FI = {
     bundlePrice: '{fromBundlePrice} alkaen {toBundlePrice} asti',
     from: '{productPrice} alkaen',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

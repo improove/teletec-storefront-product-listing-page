@@ -48,6 +48,9 @@ export const zh_Hans_CN = {
     bundlePrice: '从 {fromBundlePrice} 到 {toBundlePrice}',
     from: '从 {productPrice} 起',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

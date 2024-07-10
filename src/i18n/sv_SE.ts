@@ -48,6 +48,9 @@ export const sv_SE = {
     bundlePrice: 'Från {fromBundlePrice} till {toBundlePrice}',
     from: 'Från {productPrice}',
     addToCart: 'Lägg i varukorgen',
+    addingToCart: 'Lägger till...',
+    addedToCart: 'Lillagt',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

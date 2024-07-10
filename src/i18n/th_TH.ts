@@ -48,6 +48,9 @@ export const th_TH = {
     bundlePrice: 'ตั้งแต่ {fromBundlePrice} ถึง {toBundlePrice}',
     from: 'ตั้งแต่ {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

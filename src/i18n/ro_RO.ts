@@ -48,6 +48,9 @@ export const ro_RO = {
     bundlePrice: 'De la {fromBundlePrice} la {toBundlePrice}',
     from: 'De la {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

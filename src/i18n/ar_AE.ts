@@ -48,6 +48,9 @@ export const ar_AE = {
     bundlePrice: 'من {fromBundlePrice} إلى {toBundlePrice}',
     from: 'من {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

@@ -48,6 +48,9 @@ export const ca_ES = {
     bundlePrice: 'Des de {fromBundlePrice} A {toBundlePrice}',
     from: 'Des de {productPrice}',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

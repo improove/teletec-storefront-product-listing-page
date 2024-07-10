@@ -48,6 +48,9 @@ export const hy_AM = {
     bundlePrice: '{fromBundlePrice}-ից մինչև {toBundlePrice}',
     from: '{productPrice}-ից',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

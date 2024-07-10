@@ -48,6 +48,9 @@ export const ko_KR = {
     bundlePrice: '{fromBundlePrice} ~ {toBundlePrice}',
     from: '{productPrice}부터',
     addToCart: 'Add to cart',
+    addingToCart: 'Adding to cart',
+    addedToCart: 'Added to cart',
+    error: 'Not added to cart',
   },
   ProductContainers: {
     minquery:

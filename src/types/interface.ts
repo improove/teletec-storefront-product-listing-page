@@ -59,6 +59,7 @@ export interface StoreDetailsConfig {
 }
 
 // Types
+export type AddToCartState = 'idle' | 'loading' | 'success' | 'error';
 export type BucketTypename =
   | 'ScalarBucket'
   | 'RangeBucket'
