@@ -233,7 +233,6 @@ const getCustomerPrices = async ({
   const response = await fetch(
     `${apiUrl  }?${  qs.stringify(requestParams)}`,
     {headers:{"X-Requested-With": "XMLHttpRequest"}}
-    // {headers:{"X-Requested-With": "XMLHttpRequest"}}
   );
   return await response.json();
 };

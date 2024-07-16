@@ -253,7 +253,13 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
   ) : 0;
 
   const priceFormatter = (price: number) => {
-    const formatter = new Intl.NumberFormat('en-US');
+    const formatter = new Intl.NumberFormat(
+      'en-US',
+      {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }
+    );
     return price ? `${formatter.format(parseFloat(price.toFixed(2)))}` : '';
   };
 
