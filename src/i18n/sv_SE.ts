@@ -32,9 +32,9 @@ export const sv_SE = {
     subheading: 'Försök igen …',
   },
   SortDropdown: {
-    title: 'Sortera på',
-    option: 'Sortera på: {selectedOption}',
-    relevanceLabel: 'Mest relevant',
+    title: 'Sortera',
+    option: 'Sortera: {selectedOption}',
+    relevanceLabel: 'Relevans',
     positionLabel: 'Position',
   },
   CategoryFilters: {
@@ -63,7 +63,7 @@ export const sv_SE = {
     placeholder: 'Sök …',
   },
   ViewSwitcher: {
-    grid: 'Grid view',
-    list: 'List view',
+    grid: 'Rutnätvy',
+    list: 'Listavy',
   },
 };

@@ -9,17 +9,18 @@ it.
 
 import { FunctionComponent } from 'preact';
 
-import { useProducts, useSearch, useTranslation } from '../../context';
+import { useProducts, useSearch, useSensor, useTranslation } from '../../context';
 import Pill from '../Pill';
 import { formatBinaryLabel, formatRangeLabel } from './format';
 
 export const SelectedFilters: FunctionComponent = ({}) => {
   const searchCtx = useSearch();
   const productsCtx = useProducts();
+  const { screenSize } = useSensor();
   const translation = useTranslation();
 
   return (
-    (searchCtx.filters?.length > 0) ? (
+    (searchCtx.filters?.length > 0 && !screenSize.mobile) ? (
       <>
         <div className="filter-current am-filter-current">
           <ol className={'items'}>

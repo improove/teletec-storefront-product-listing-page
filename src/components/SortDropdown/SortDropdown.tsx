@@ -101,7 +101,13 @@ export const SortDropdown: FunctionComponent<SortDropdownProps> = ({
             onFocus={() => setIsFocus(false)}
             onBlur={() => setIsFocus(false)}
           >
-            <span className="label">{selectedOption ? sortOption : translation.SortDropdown.title}</span>
+            {screenSize.mobile && (
+              <span className="label">{translation.SortDropdown.title}</span>
+            )}
+            {!screenSize.mobile && (
+              <span className="label">{selectedOption ? sortOption : translation.SortDropdown.title}</span>
+            )}
+
             <Chevron
               className={`flex-shrink-0 m-auto ml-sm h-md w-md stroke-1 stroke-gray-600 ${
                 isDropdownOpen ? '' : 'rotate-180'

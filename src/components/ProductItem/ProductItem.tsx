@@ -540,16 +540,6 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
           )}
         </div>
       )}
-        <div className="pb-4 mt-sm">
-          {product?.price_range?.minimum_price?.final_price?.value ? (
-              <>
-                {screenSize.mobile && <AddToCartButton onClick={handleAddToCart} addToCartState={addToCartState}/>}
-                {isHovering && screenSize.desktop && (
-                    <AddToCartButton onClick={handleAddToCart} addToCartState={addToCartState}/>
-                )}
-              </>
-          ) : (<></>)}
-        </div>
     </div>
     </li>
   );
