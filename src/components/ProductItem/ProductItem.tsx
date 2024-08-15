@@ -254,7 +254,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
 
   const priceFormatter = (price: number) => {
     const formatter = new Intl.NumberFormat(
-      'en-US',
+      'fr-FR',
       {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2

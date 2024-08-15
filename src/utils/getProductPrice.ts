@@ -59,7 +59,7 @@ const getProductPrice = (
     ? price?.value * parseFloat(currencyRate)
     : price?.value;
   const formatter = new Intl.NumberFormat(
-    'en-US',
+    'fr-FR',
     {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
