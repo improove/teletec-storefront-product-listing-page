@@ -72,15 +72,7 @@ export const App: FunctionComponent = () => {
                     filterCount={searchCtx.filterCount}
                   />
                   <div className="column main">
-                    {! (productsCtx.totalCount !> 1) &&
-                    <ProductsHeader
-                      facets={productsCtx.facets}
-                      totalCount={productsCtx.totalCount}
-                      screenSize={screenSize}
-                    />
-                    }
-                    {/*<SelectedFilters />*/}
-
+                    <SelectedFilters />
                     <ProductsContainer showFilters={showFilters} />
                   </div>
                 </div>

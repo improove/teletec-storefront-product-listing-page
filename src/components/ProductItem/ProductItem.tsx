@@ -230,7 +230,7 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
       return (
           <a href={brandData?.link_url || '#'}>
             {(brandData?.image_url) &&
-                <Image image={brandData?.image_url} alt={String(brandData?.title)}  carouselIndex={0} index={0}/>
+                <img src={brandData?.image_url} alt={String(brandData?.title)} />
             }
             { !(brandData?.image_url) &&
                 <span>{manufacturerData}</span>
