@@ -60,6 +60,9 @@ export interface StoreDetailsConfig {
 
 // Types
 export type AddToCartState = 'idle' | 'loading' | 'success' | 'error';
+
+export type AddToCompareState = 'idle' | 'loading' | 'success' | 'error';
+
 export type BucketTypename =
   | 'ScalarBucket'
   | 'RangeBucket'
@@ -447,6 +450,15 @@ export interface Brand {
   link_url: null | string;
   image_url: null | string;
   small_image_alt: null | string;
+}
+
+export interface CompareList {
+  uid: string;
+  item_count?: number;
+}
+
+export interface Customer {
+  compare_list: null | CompareList;
 }
 
 export interface CustomerPrice {

@@ -193,9 +193,19 @@ const GET_CUSTOMER_CART = `
     }
 `;
 
+const GET_CUSTOMER_DATA = `
+    query customer {
+        compareList {
+            uuid
+            item_count
+        }
+    }
+`;
+
 export {
   ATTRIBUTE_METADATA_QUERY,
   GET_CUSTOMER_CART,
+  GET_CUSTOMER_DATA,
   PRODUCT_SEARCH_QUERY,
   QUICK_SEARCH_QUERY,
   REFINE_PRODUCT_QUERY,

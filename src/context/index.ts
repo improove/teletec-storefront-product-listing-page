@@ -9,6 +9,7 @@ it.
 
 export * from './attributeMetadata';
 export * from './cart';
+export * from './customer';
 export * from './displayChange';
 export * from './events';
 export * from './products';

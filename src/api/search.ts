@@ -14,6 +14,7 @@ import { updateSearchInputCtx, updateSearchResultsCtx } from '../context';
 import {
   AttributeMetadataResponse,
   ClientProps,
+  Customer,
   CustomerPrice,
   CustomerPricesQuery,
   MagentoHeaders,
@@ -24,10 +25,11 @@ import {
 } from '../types/interface';
 import { SEARCH_UNIT_ID } from '../utils/constants';
 import {
-  ATTRIBUTE_METADATA_QUERY,
+  ATTRIBUTE_METADATA_QUERY, GET_CUSTOMER_DATA,
   PRODUCT_SEARCH_QUERY,
   REFINE_PRODUCT_QUERY,
 } from './queries';
+import { getGraphQL } from '../api/graphql';
 
 const getHeaders = (headers: MagentoHeaders) => {
   return {
@@ -237,4 +239,9 @@ const getCustomerPrices = async ({
   return await response.json();
 };
 
-export { getAttributeMetadata, getProductSearch, refineProductSearch, getCustomerPrices };
+const getCustomer = async (): Promise<Customer> => {
+  const customerResponse = await getGraphQL(GET_CUSTOMER_DATA);
+  return customerResponse?.data.customer ?? {};
+};
+
+export { getAttributeMetadata, getProductSearch, refineProductSearch, getCustomer, getCustomerPrices };

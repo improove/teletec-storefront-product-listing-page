@@ -58,6 +58,10 @@ export const en_US = {
     addingToCart: 'Adding to cart',
     addedToCart: 'Added to cart',
     error: 'Not added to cart',
+    addToCompare: 'Add to compare',
+    addingToCompare: 'Adding to compare',
+    addedToCompare: 'Added to compare',
+    errorToCompare: 'Not added to compare',
   },
   ProductContainers: {
     minquery:
