@@ -72,7 +72,6 @@ export const App: FunctionComponent = () => {
                     filterCount={searchCtx.filterCount}
                   />
                   <div className="column main">
-                    <SelectedFilters />
                     <ProductsContainer showFilters={showFilters} />
                   </div>
                 </div>
