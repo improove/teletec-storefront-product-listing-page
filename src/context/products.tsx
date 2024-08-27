@@ -86,6 +86,7 @@ const ProductsContext = createContext<{
     quantity: number
   ) => Promise<void | undefined>;
   brandsData: Brand[];
+  imagePlaceholder?: string;
   customerPrices?: CustomerPrice[];
 }>({
   variables: {
@@ -129,6 +130,7 @@ const ProductsContext = createContext<{
   refreshCart: () => {},
   addToCart: () => Promise.resolve(),
   brandsData: [],
+  imagePlaceholder: undefined,
   customerPrices: [],
 });
 
@@ -271,6 +273,7 @@ const ProductsContextProvider = ({ children }: WithChildrenProps) => {
     resolveCartId: storeCtx.config.resolveCartId,
     addToCart: storeCtx.config.addToCart,
     brandsData: JSON.parse(storeCtx.config.brandsData || '[]'),
+    imagePlaceholder: storeCtx.config.imagePlaceholder,
     customerPrices,
   };
 

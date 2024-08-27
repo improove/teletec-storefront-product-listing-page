@@ -54,6 +54,7 @@ export interface StoreDetailsConfig {
     quantity: number
   ) => Promise<void | undefined>;
   brandsData?: string | undefined;
+  imagePlaceholder?: string | undefined;
   customerPriceServiceUrl?: string | undefined,
   showPrice?: boolean;
 }

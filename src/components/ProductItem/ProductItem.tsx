@@ -111,13 +111,16 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
     return selected;
   };
 
+  const { brandsData, imagePlaceholder } = useProducts();
+
   const productImageArray = imagesFromRefinedProduct
-    ? getProductImageURLs(imagesFromRefinedProduct ?? [], imageCarousel ? 3 : 1)
+    ? getProductImageURLs(imagesFromRefinedProduct ?? [imagePlaceholder], imageCarousel ? 3 : 1)
     : getProductImageURLs(
         productView.images ?? [],
         imageCarousel ? 3 : 1, // number of images to display in carousel
-        product.image?.url ?? undefined
+        product.image?.url ?? imagePlaceholder
       );
+  console.log(productImageArray);
   let optimizedImageArray: { src: string; srcset: any }[] = [];
 
   if (optimizeImages) {
@@ -192,8 +195,6 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
       window.open(productUrl, '_self');
     }
   };
-
-  const { brandsData } = useProducts();
 
   const manufacturer = (product: Product) => {
     if (!product.productView.attributes) {
