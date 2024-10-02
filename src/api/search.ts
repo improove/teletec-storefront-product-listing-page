@@ -29,7 +29,7 @@ import {
   PRODUCT_SEARCH_QUERY,
   REFINE_PRODUCT_QUERY,
 } from './queries';
-import { getGraphQL } from '../api/graphql';
+import { getGraphQL, getGraphQLTest } from '../api/graphql';
 
 const getHeaders = (headers: MagentoHeaders) => {
   return {
@@ -239,9 +239,4 @@ const getCustomerPrices = async ({
   return await response.json();
 };
 
-const getCustomer = async (): Promise<Customer> => {
-  const customerResponse = await getGraphQL(GET_CUSTOMER_DATA);
-  return customerResponse?.data.customer ?? {};
-};
-
-export { getAttributeMetadata, getProductSearch, refineProductSearch, getCustomer, getCustomerPrices };
+export { getAttributeMetadata, getProductSearch, refineProductSearch, getCustomerPrices };

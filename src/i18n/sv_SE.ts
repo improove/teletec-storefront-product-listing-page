@@ -51,6 +51,10 @@ export const sv_SE = {
     addingToCart: 'Lägger till...',
     addedToCart: 'Lillagt',
     error: 'Not added to cart',
+    addToCompare: 'Add to compare',
+    addingToCompare: 'Adding to compare',
+    addedToCompare: 'Added to compare',
+    errorToCompare: 'Not added to compare',
   },
   ProductContainers: {
     minquery:

@@ -30,4 +30,30 @@ const ADD_TO_CART = `
   }
 `;
 
-export { ADD_TO_CART, CREATE_EMPTY_CART };
+const ADD_TO_COMPARE = `
+  mutation addProductsToCompareList(
+    $input: AddProductsToCompareListInput
+  ) {
+      addProductsToCompareList(
+        input: $input
+      ) {
+          uid,
+          item_count
+      }
+  }
+`;
+
+const CREATE_COMPARE_LIST = `
+  mutation createCompareList(
+    $input: CreateCompareListInput
+  ) {
+      createCompareList(
+        input: $input
+      ) {
+          uid,
+          item_count
+      }
+  }
+`;
+
+export { ADD_TO_CART, CREATE_EMPTY_CART, ADD_TO_COMPARE, CREATE_COMPARE_LIST };

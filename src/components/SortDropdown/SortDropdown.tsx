@@ -126,7 +126,7 @@ export const SortDropdown: FunctionComponent<SortDropdownProps> = ({
                     onMouseOver={() => setActiveIndex(i)}
                     className={`${i === activeIndex ? 'selected highlighted' : ''}`}
                   >
-                    <a onClick={() => {console.log('clicked'); select(option.value);}}>
+                    <a onClick={() => {select(option.value);}}>
                       {option.label}
                     </a>
                   </li>

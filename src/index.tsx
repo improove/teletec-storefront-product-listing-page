@@ -16,6 +16,7 @@ import App from './containers/App';
 import {
   AttributeMetadataProvider,
   CartProvider,
+  CustomerProvider,
   ProductsContextProvider,
   SearchProvider,
   StoreContextProvider,
@@ -56,7 +57,9 @@ const LiveSearchPLP = ({ storeDetails, root }: MountSearchPlpProps) => {
             <Translation>
               <ProductsContextProvider>
                 <CartProvider>
-                  <App />
+                  <CustomerProvider>
+                    <App />
+                  </CustomerProvider>
                 </CartProvider>
               </ProductsContextProvider>
             </Translation>

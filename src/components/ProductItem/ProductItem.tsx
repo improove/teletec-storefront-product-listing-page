@@ -13,10 +13,11 @@ import { useState } from 'preact/hooks';
 
 import '../ProductItem/ProductItem.css';
 
-import { useCart, useProducts, useSensor, useStore } from '../../context';
+import { useCart, useCustomer, useProducts, useSensor, useStore } from '../../context';
 import NoImage from '../../icons/NoImage.svg';
 import {
   AddToCartState,
+  AddToCompareState,
   Brand,
   CustomerPrice,
   Product,
@@ -31,6 +32,7 @@ import {
 } from '../../utils/getProductImage';
 import { htmlStringDecode } from '../../utils/htmlStringDecode';
 import { AddToCartButton } from '../AddToCartButton';
+import { AddToCompareButton } from '../AddToCompareButton';
 import ButtonShimmer from '../ButtonShimmer';
 import CustomerPriceShimmer from '../CustomerPriceShimmer';
 import DiscountShimmer from '../DiscountShimmer';
@@ -77,7 +79,9 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
   const [refinedProduct, setRefinedProduct] = useState<RefinedProduct>();
   const [isHovering, setIsHovering] = useState(false);
   const [addToCartState, setAddToCartState] = useState('idle' as AddToCartState);
+  const [addToCompareState, setAddToCompareState] = useState('idle' as AddToCompareState);
   const { addToCartGraphQL, refreshCart } = useCart();
+  const { initializeCustomer, addToCompareGraphQL} = useCustomer();
   const { viewType } = useProducts();
   const {
     config: {
@@ -85,7 +89,10 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
       imageBaseWidth,
       imageCarousel,
       showPrice,
-      listview},
+      listview,
+      localGqlServiceUrl,
+      refreshCompareProducts,
+    },
   } = useStore();
 
   const { screenSize } = useSensor();
@@ -120,7 +127,6 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
         imageCarousel ? 3 : 1, // number of images to display in carousel
         product.image?.url ?? imagePlaceholder
       );
-  console.log(productImageArray);
   let optimizedImageArray: { src: string; srcset: any }[] = [];
 
   if (optimizeImages) {
@@ -194,6 +200,20 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
     } else if (productUrl) {
       window.open(productUrl, '_self');
     }
+  };
+  const handleAddToCompare = async (event: Event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setAddToCompareState('loading');
+    const response = await addToCompareGraphQL(product.id, localGqlServiceUrl);
+    if (response?.item_count && response?.item_count > 0) {
+      setAddToCompareState('success');
+      refreshCompareProducts && refreshCompareProducts();
+    }
+    setTimeout(() => {
+      setAddToCompareState('idle');
+    }, 2000);
+    return;
   };
 
   const manufacturer = (product: Product) => {
@@ -518,6 +538,11 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
                 ) : (<></>)}
               </div>
             </div>
+            {product?.price_range?.minimum_price?.final_price?.value ? (
+              <div className="actions-secondary">
+                <AddToCompareButton onClick={handleAddToCompare} addToCompareState={addToCompareState}/>
+              </div>
+            ) : (<></>)}
           </div>
         </div>
       </div>

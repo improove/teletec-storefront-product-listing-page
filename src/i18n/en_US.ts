@@ -62,6 +62,7 @@ export const en_US = {
     addingToCompare: 'Adding to compare',
     addedToCompare: 'Added to compare',
     errorToCompare: 'Not added to compare',
+    addToRequisitionList: 'Add to requisition list',
   },
   ProductContainers: {
     minquery:

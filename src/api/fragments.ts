@@ -40,6 +40,7 @@ const ProductView = `
         productView {
             __typename
             sku
+            id
             name
             inStock
             url
@@ -129,6 +130,7 @@ const Product = `
         product {
             __typename
             sku
+            id
             description {
                 html
             }

@@ -48,6 +48,7 @@ export interface StoreDetailsConfig {
   imageBaseWidth?: number;
   resolveCartId?: () => Promise<string | undefined>;
   refreshCart?: () => void;
+  refreshCompareProducts?: () => void;
   addToCart?: (
     sku: string,
     options: [],
@@ -56,6 +57,7 @@ export interface StoreDetailsConfig {
   brandsData?: string | undefined;
   imagePlaceholder?: string | undefined;
   customerPriceServiceUrl?: string | undefined,
+  localGqlServiceUrl?: string | undefined,
   showPrice?: boolean;
 }
 
@@ -63,6 +65,8 @@ export interface StoreDetailsConfig {
 export type AddToCartState = 'idle' | 'loading' | 'success' | 'error';
 
 export type AddToCompareState = 'idle' | 'loading' | 'success' | 'error';
+
+export type AddToRequisitionListState = 'idle' | 'loading' | 'success' | 'error';
 
 export type BucketTypename =
   | 'ScalarBucket'
@@ -454,12 +458,19 @@ export interface Brand {
 }
 
 export interface CompareList {
-  uid: string;
+  uid?: string;
   item_count?: number;
 }
 
+export interface RequisitionList {
+  uid?: string;
+  name?: number;
+}
+
 export interface Customer {
-  compare_list: null | CompareList;
+  email?: null | string;
+  compare_list?: null | CompareList;
+  requisition_lists?: null | Array<RequisitionList>;
 }
 
 export interface CustomerPrice {

@@ -57,7 +57,7 @@ export const App: FunctionComponent = () => {
       ) : (
         <>
           {!(displayMode === 'PAGE') &&
-            (productsCtx.facets.length > 0 ? (
+            (productsCtx.totalCount > 0 ? (
               <div className="ds-widgets">
                 <div>
                   <CategoryFilters

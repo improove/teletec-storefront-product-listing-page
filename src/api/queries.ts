@@ -195,9 +195,18 @@ const GET_CUSTOMER_CART = `
 
 const GET_CUSTOMER_DATA = `
     query customer {
-        compareList {
-            uuid
-            item_count
+        customer {
+            email
+            compare_list {
+                uid
+                item_count
+            }
+            requisition_lists {
+                items {
+                    uid
+                    name
+                }
+            }
         }
     }
 `;
