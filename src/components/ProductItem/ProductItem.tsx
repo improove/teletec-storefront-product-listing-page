@@ -120,7 +120,6 @@ export const ProductItem: FunctionComponent<ProductProps> = ({
         imageCarousel ? 3 : 1, // number of images to display in carousel
         product.image?.url ?? imagePlaceholder
       );
-  console.log(productImageArray);
   let optimizedImageArray: { src: string; srcset: any }[] = [];
 
   if (optimizeImages) {
